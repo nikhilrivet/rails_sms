@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87b605b5-3f4e-42bd-9fd7-004e9783e375" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/.keep" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sms_rivet.iml" afterPath="$PROJECT_DIR$/.idea/sms_rivet.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
@@ -27,8 +28,8 @@
       <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="96" column="61" lean-forward="true" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
+            <state relative-caret-position="306">
+              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -67,8 +68,8 @@
       <file leaf-file-name="database.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/database.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="216">
+              <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -224,90 +225,20 @@
             <path>
               <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
               <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="book" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="single_sms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="initializers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sms_rivet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sms_rivet" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -323,16 +254,16 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/assets/javascript" />
-      <recent name="$PROJECT_DIR$/lib/assets" />
-      <recent name="$PROJECT_DIR$/app/assets" />
-      <recent name="$PROJECT_DIR$/public/assets" />
-      <recent name="$PROJECT_DIR$/app/assets/javascripts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/assets/images" />
       <recent name="$PROJECT_DIR$/app/assets/javascripts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/assets/images" />
+      <recent name="$PROJECT_DIR$/app/assets/images" />
+      <recent name="$PROJECT_DIR$/app/assets" />
+      <recent name="$PROJECT_DIR$/lib/assets/javascript" />
+      <recent name="$PROJECT_DIR$/lib/assets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -465,12 +396,12 @@
       <workItem from="1547485189918" duration="12780000" />
       <workItem from="1547518015766" duration="727000" />
       <workItem from="1547518980976" duration="3932000" />
-      <workItem from="1547535254599" duration="10763000" />
+      <workItem from="1547535254599" duration="11800000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33626000" />
+    <option name="totallyTimeSpent" value="34663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1795" height="1036" extended-state="6" />
@@ -867,16 +798,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state relative-caret-position="216">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="96" column="61" lean-forward="true" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
+        <state relative-caret-position="306">
+          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="33" />
           <folding />
         </state>
       </provider>
