@@ -1,0 +1,122 @@
+<div class="sidebar-header">
+  <div class="sidebar-title">
+    Navigation
+  </div>
+  <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+  </div>
+</div>
+
+<div class="nano">
+  <div class="nano-content">
+    <nav id="menu" class="nav-main" role="navigation">
+      <ul class="nav nav-main">
+        <li class="nav-active">
+          <%= link_to "<i class='fa fa-home' aria-hidden='true'></i><span>Dashboard</span>".html_safe, root_path %>
+        </li>
+        <li class="nav-parent">
+          <a>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <span>Send SMS</span>
+          </a>
+          <ul class="nav nav-children">
+            <li>
+              <%= link_to 'Single SMS', single_sms_index_path %>
+            </li>
+            <li>
+              <a href="pages-signin.html">
+                Bulk SMS
+              </a>
+            </li>
+            <li>
+              <a href="pages-recover-password.html">
+                Group SMS
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-parent">
+          <a>
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <span>Address Book</span>
+          </a>
+          <ul class="nav nav-children">
+            <li>
+              <a href="ui-elements-typography.html">
+                Group
+              </a>
+            </li>
+            <li>
+              <a href="ui-elements-icons.html">
+                Distribution List
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-parent">
+          <a>
+            <i class="fa fa-list-alt" aria-hidden="true"></i>
+            <span>Reports</span>
+          </a>
+          <ul class="nav nav-children">
+            <li>
+              <a href="forms-basic.html">
+                Credit Details
+              </a>
+            </li>
+            <li>
+              <a href="forms-advanced.html">
+                Today's Stats
+              </a>
+            </li>
+            <li>
+              <a href="forms-validation.html">
+                SMS Reports
+              </a>
+            </li>
+            <li>
+              <a href="forms-layouts.html">
+                SMS Summary
+              </a>
+            </li>
+            <li>
+              <a href="forms-wizard.html">
+                Wizard
+              </a>
+            </li>
+            <li>
+              <a href="forms-code-editor.html">
+                Acculync
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-parent">
+          <a>
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span>User Profile</span>
+          </a>
+          <ul class="nav nav-children">
+            <li>
+              <a href="tables-basic.html">
+                User Profile
+              </a>
+            </li>
+            <li>
+              <a href="tables-advanced.html">
+                Change Password
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="index.html">
+            <i class="fa fa-dashboard" aria-hidden="true"></i>
+            <span>Coverage Details</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+</div>
