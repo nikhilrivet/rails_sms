@@ -1,0 +1,2 @@
+module TodayStatsHelper
+end

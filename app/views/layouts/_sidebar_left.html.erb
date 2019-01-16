@@ -24,14 +24,10 @@
               <%= link_to 'Single SMS', single_sms_index_path %>
             </li>
             <li>
-              <a href="pages-signin.html">
-                Bulk SMS
-              </a>
+              <%= link_to 'Bulk SMS', bulk_sms_index_path %>
             </li>
             <li>
-              <a href="pages-recover-password.html">
-                Group SMS
-              </a>
+              <%= link_to 'Group SMS', group_sms_index_path %>
             </li>
           </ul>
         </li>
@@ -42,14 +38,10 @@
           </a>
           <ul class="nav nav-children">
             <li>
-              <a href="ui-elements-typography.html">
-                Group
-              </a>
+              <%= link_to 'Group', group_list_index_path %>
             </li>
             <li>
-              <a href="ui-elements-icons.html">
-                Distribution List
-              </a>
+              <%= link_to 'Distribution List', distribution_list_index_path %>
             </li>
           </ul>
         </li>
@@ -60,60 +52,27 @@
           </a>
           <ul class="nav nav-children">
             <li>
-              <a href="forms-basic.html">
-                Credit Details
-              </a>
+              <%= link_to 'Credit Details', credit_details_index_path %>
             </li>
             <li>
-              <a href="forms-advanced.html">
-                Today's Stats
-              </a>
+              <%= link_to "Today's Stats", today_stats_index_path %>
             </li>
             <li>
-              <a href="forms-validation.html">
-                SMS Reports
-              </a>
+              <%= link_to 'SMS Reports', sms_reports_index_path %>
             </li>
             <li>
-              <a href="forms-layouts.html">
-                SMS Summary
-              </a>
+              <%= link_to 'SMS Summary', sms_summary_index_path %>
             </li>
             <li>
-              <a href="forms-wizard.html">
-                Wizard
-              </a>
-            </li>
-            <li>
-              <a href="forms-code-editor.html">
-                Acculync
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-parent">
-          <a>
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <span>User Profile</span>
-          </a>
-          <ul class="nav nav-children">
-            <li>
-              <a href="tables-basic.html">
-                User Profile
-              </a>
-            </li>
-            <li>
-              <a href="tables-advanced.html">
-                Change Password
-              </a>
+              <%= link_to 'Acculync', acculync_index_path %>
             </li>
           </ul>
         </li>
         <li class="">
-          <a href="index.html">
-            <i class="fa fa-dashboard" aria-hidden="true"></i>
-            <span>Coverage Details</span>
-          </a>
+          <%= link_to '<i class="fa fa-user" aria-hidden="true"></i><span>User Profile</span>'.html_safe, user_profile_index_path %>
+        </li>
+        <li class="">
+          <%= link_to '<i class="fa fa-dashboard" aria-hidden="true"></i><span>Coverage Details</span>'.html_safe, coverage_details_index_path %>
         </li>
       </ul>
     </nav>

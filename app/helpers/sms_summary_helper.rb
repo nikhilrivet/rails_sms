@@ -1,0 +1,2 @@
+module SmsSummaryHelper
+end

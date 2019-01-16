@@ -1,5 +1,5 @@
 <header class="page-header">
-  <h2>Single SMS</h2>
+  <h2>Group SMS</h2>
 
   <div class="right-wrapper pull-right">
     <ol class="breadcrumbs">
@@ -9,7 +9,7 @@
         </a>
       </li>
       <li><span>Send SMS</span></li>
-      <li><span>Single SMS</span></li>
+      <li><span>Group SMS</span></li>
     </ol>
 
     <span class="sidebar-right-toggle"></span>
@@ -22,37 +22,40 @@
     <form id="form" action="forms-validation.html" class="form-horizontal">
       <section class="panel">
         <header class="panel-heading">
-          <h2 class="panel-title">Send Single SMS</h2>
+          <h2 class="panel-title">Send Group SMS</h2>
         </header>
         <div class="panel-body">
           <div class="form-group">
-            <label class="col-sm-2 control-label">Separation Type <span class="required">*</span></label>
-            <div class="col-sm-9">
-              <div class="radio-custom radio-primary radio-inline">
-                <input id="awesome" name="porto_is" type="radio" value="awesome" required />
-                <label for="awesome">Comma Separated</label>
-              </div>
-              <div class="radio-custom radio-primary radio-inline">
-                <input id="very-awesome" name="porto_is" type="radio" value="very-awesome" />
-                <label for="very-awesome">Line Separated</label>
-              </div>
-              <label class="error" for="porto_is"></label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Number <span class="required">*</span></label>
-            <div class="col-sm-9">
-              <input type="text" name="fullname" class="form-control" placeholder="eg.: 1345879125" required/>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Checkboxes</label>
+            <label class="col-sm-2 control-label">Remove Duplicates</label>
 
             <div class="col-sm-9">
               <div class="checkbox-custom checkbox-primary">
                 <input type="checkbox" checked="" id="checkboxExample1">
                 <label for="checkboxExample1"></label>
               </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Acculync</label>
+
+            <div class="col-sm-9">
+              <div class="checkbox-custom checkbox-primary">
+                <input type="checkbox" checked="" id="checkboxExample1">
+                <label for="checkboxExample1"></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label">Groups</label>
+            <div class="col-md-6">
+              <select class="form-control" multiple="multiple" data-plugin-multiselect id="ms_example0">
+                <option value="cheese">Cheese</option>
+                <option value="tomatoes" selected>Tomatoes</option>
+                <option value="mozarella" selected>Mozzarella</option>
+                <option value="mushrooms">Mushrooms</option>
+                <option value="pepperoni">Pepperoni</option>
+                <option value="onions">Onions</option>
+              </select>
             </div>
           </div>
           <div class="form-group">

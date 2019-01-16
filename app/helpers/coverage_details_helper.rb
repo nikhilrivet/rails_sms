@@ -1,0 +1,2 @@
+module CoverageDetailsHelper
+end
