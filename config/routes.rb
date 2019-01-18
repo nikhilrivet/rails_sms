@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   get 'coverage_details/index'
   get 'telnet_connector/index'
 
-  get 'single_sms/send_sms'
+  post 'single_sms/send_sms'
 end
