@@ -5,13 +5,15 @@ class SingleSmsController < ApplicationController
 
   def send_sms
     @phone_number = params[:phone_number]
-    @sender = params[:phone_number]
+    @sender = params[:sender]
     @message = params[:message]
     require 'net/http'
+    content = "ازرع اسنانك بيوم واحد وبدون ألم مع ضمان مدى الحياة0551081988"
 
     uri = URI('http://95.179.214.39:1401/send')
     params = { :username => 'foo', :password => 'bar',
-               :to => @phone_number, :content => @message,:from => @sender ,
+               :to => @phone_number, 'content' => @message.encode("UTF-16BE"),:from => @sender ,
+               :coding => 8,
                :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => 'http://217.69.4.126/dlr.php'}
     uri.query = URI.encode_www_form(params)
 
