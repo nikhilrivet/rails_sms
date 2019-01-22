@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   get 'telnet_connector/index'
 
   post 'single_sms/send_sms'
+
+  get 'delivery_receipt/get_dlr'
 end

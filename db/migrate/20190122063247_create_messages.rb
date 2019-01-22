@@ -5,7 +5,15 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.string :sender
       t.string :message
       t.string :message_id
-      t.string :delivery
+      t.string :message_status
+      t.timestamp :donedate
+      t.string :sub
+      t.string :err
+      t.integer :level
+      t.string :text
+      t.string :id_smsc
+      t.string :dlvrd
+      t.timestamp :subdate
       t.timestamps
     end
   end

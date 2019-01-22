@@ -32,7 +32,15 @@ ActiveRecord::Schema.define(version: 2019_01_22_063247) do
     t.string "sender"
     t.string "message"
     t.string "message_id"
-    t.string "delivery"
+    t.string "message_status"
+    t.datetime "donedate"
+    t.string "sub"
+    t.string "err"
+    t.integer "level"
+    t.string "text"
+    t.string "id_smsc"
+    t.string "dlvrd"
+    t.datetime "subdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
