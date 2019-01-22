@@ -11,16 +11,16 @@
   <div class="nano-content">
     <nav id="menu" class="nav-main" role="navigation">
       <ul class="nav nav-main">
-        <li class="nav-active">
+        <li class="<%= 'nav-active' if current_page?(root_path) %>">
           <%= link_to "<i class='fa fa-home' aria-hidden='true'></i><span>Dashboard</span>".html_safe, root_path %>
         </li>
-        <li class="nav-parent">
+        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(single_sms_index_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
           <a>
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <span>Send SMS</span>
           </a>
           <ul class="nav nav-children">
-            <li>
+            <li class="<%= 'nav-active' if current_page?(single_sms_index_path) %>">
               <%= link_to 'Single SMS', single_sms_index_path %>
             </li>
             <li>
@@ -45,7 +45,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-parent">
+        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(sms_reports_index_path)%>">
           <a>
             <i class="fa fa-list-alt" aria-hidden="true"></i>
             <span>Reports</span>
@@ -57,7 +57,7 @@
             <li>
               <%= link_to "Today's Stats", today_stats_index_path %>
             </li>
-            <li>
+            <li class="<%= 'nav-active' if current_page?(sms_reports_index_path) %>" >
               <%= link_to 'SMS Reports', sms_reports_index_path %>
             </li>
             <li>

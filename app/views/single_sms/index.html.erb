@@ -1,4 +1,4 @@
-<header class="page-header">
+<!--<header class="page-header">
   <h2>Single SMS</h2>
 
   <div class="right-wrapper pull-right">
@@ -14,12 +14,12 @@
 
     <span class="sidebar-right-toggle"></span>
   </div>
-</header>
-<%= response %>
+</header>-->
+
 <!-- start: page -->
 <div class="row">
   <div class="col-md-12">
-    <%= form_tag("/single_sms/send_sms", method: "post") do %>
+    <%= form_tag("/single_sms/send_sms", method: "post", id: "frmSendSms", name: "frmSendSms") do %>
       <section class="panel">
         <header class="panel-heading">
           <h2 class="panel-title">Send Single SMS</h2>
@@ -98,15 +98,16 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Message <span class="required">*</span></label>
             <div class="col-sm-9">
-              <textarea name="message" rows="5" class="form-control" placeholder="Enter messages" required></textarea>
+              <textarea name="txtMessage" rows="5" class="form-control" placeholder="Enter messages" required onkeypress="javascript:setCounter();"></textarea>
             </div>
           </div>
-          <!--<div class="form-group">-->
-            <!--<label class="col-sm-2 control-label">Characters</label>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="url" name="github" class="form-control" placeholder="" />-->
-            <!--</div>-->
-          <!--</div>-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Characters</label>
+            <div class="col-sm-9">
+              <input type="text" name="txtcount" class="form-control" value="" />
+              <input type="hidden" value="160" name="hiddcount">
+            </div>
+          </div>
           <!--<div class="form-group">-->
             <!--<label class="col-sm-2 control-label">Schedule</label>-->
             <!--<div class="col-sm-9">-->
