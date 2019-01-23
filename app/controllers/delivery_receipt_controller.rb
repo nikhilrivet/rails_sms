@@ -1,4 +1,5 @@
 class DeliveryReceiptController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def get_dlr
     @message_status = params[:message_status]
     @donedate = params[:donedate]
