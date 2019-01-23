@@ -18,5 +18,5 @@ Rails.application.routes.draw do
 
   post 'single_sms/send_sms'
 
-  get 'delivery_receipt/get_dlr'
+  post 'delivery_receipt/get_dlr'
 end
