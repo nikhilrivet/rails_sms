@@ -1,0 +1,101 @@
+<!--<h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>-->
+
+<section class="body-sign">
+  <div class="center-sign">
+    <a href="/" class="logo pull-left">
+      <img src="/assets/images/logo.png" height="54" alt="Porto Admin" />
+    </a>
+
+    <div class="panel panel-sign">
+      <div class="panel-title-sign mt-xl text-right">
+        <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Sign In</h2>
+      </div>
+      <div class="panel-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group mb-lg">
+            <label>Email</label>
+            <div class="input-group input-group-icon">
+              <input name="user[email]" type="email" class="form-control input-lg" />
+              <span class="input-group-addon">
+										<span class="icon icon-lg">
+											<i class="fa fa-user"></i>
+										</span>
+									</span>
+            </div>
+          </div>
+
+          <div class="form-group mb-lg">
+            <div class="clearfix">
+              <label class="pull-left">Password</label>
+              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                  <%= link_to "Lost Password?", new_password_path(resource_name), class: "pull-right" %><br />
+              <% end -%>
+            </div>
+            <div class="input-group input-group-icon">
+              <input name="user[password]" type="password" class="form-control input-lg" />
+              <span class="input-group-addon">
+										<span class="icon icon-lg">
+											<i class="fa fa-lock"></i>
+										</span>
+									</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="checkbox-custom checkbox-default">
+                <input id="RememberMe" name="rememberme" type="checkbox"/>
+                <label for="RememberMe">Remember Me</label>
+              </div>
+            </div>
+            <div class="col-sm-4 text-right">
+              <button type="submit" class="btn btn-primary hidden-xs">Sign In</button>
+              <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign In</button>
+            </div>
+          </div>
+
+          <!--<span class="mt-lg mb-lg line-thru text-center text-uppercase">
+								<span>or</span>
+							</span>
+
+          <div class="mb-xs text-center">
+            <a class="btn btn-facebook mb-md ml-xs mr-xs">Connect with <i class="fa fa-facebook"></i></a>
+            <a class="btn btn-twitter mb-md ml-xs mr-xs">Connect with <i class="fa fa-twitter"></i></a>
+          </div>-->
+
+          <p class="text-center">Don't have an account yet? <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+            <% end -%>
+
+        <% end %>
+      </div>
+    </div>
+
+    <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2019. All rights reserved. Template by <a href="">Rivet Solutions</a>.</p>
+  </div>
+</section>

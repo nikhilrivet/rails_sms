@@ -11,8 +11,8 @@
   <div class="nano-content">
     <nav id="menu" class="nav-main" role="navigation">
       <ul class="nav nav-main">
-        <li class="<%= 'nav-active' if current_page?(root_path) %>">
-          <%= link_to "<i class='fa fa-home' aria-hidden='true'></i><span>Dashboard</span>".html_safe, root_path %>
+        <li class="<%= 'nav-active' if current_page?(authenticated_root_path) %>">
+          <%= link_to "<i class='fa fa-home' aria-hidden='true'></i><span>Dashboard</span>".html_safe, authenticated_root_path %>
         </li>
         <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(single_sms_index_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
           <a>
