@@ -1,4 +1,4 @@
-<h2>Forgot your password?</h2>
+<!--<h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
@@ -13,4 +13,38 @@
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= render "users/shared/links" %>-->
+
+<section class="body-sign">
+  <div class="center-sign">
+    <a href="/" class="logo pull-left">
+      <img src="/assets/images/logo.png" height="54" alt="Porto Admin" />
+    </a>
+
+    <div class="panel panel-sign">
+      <div class="panel-title-sign mt-xl text-right">
+        <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Recover Password</h2>
+      </div>
+      <div class="panel-body">
+        <div class="alert alert-info">
+          <p class="m-none text-semibold h6">Enter your e-mail below and we will send you reset instructions!</p>
+        </div>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <div class="form-group mb-none">
+            <div class="input-group">
+              <input name="user[email]" type="email" placeholder="E-mail" class="form-control input-lg" />
+              <span class="input-group-btn">
+										<button class="btn btn-primary btn-lg" type="submit">Reset!</button>
+									</span>
+            </div>
+          </div>
+
+          <p class="text-center mt-lg">Remembered? <%= link_to "Sign in", new_session_path(resource_name) %><br />
+        <% end %>
+      </div>
+    </div>
+
+    <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2014. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+  </div>
+</section>
