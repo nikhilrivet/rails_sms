@@ -31,14 +31,14 @@
             </li>
           </ul>
         </li>
-        <li class="nav-parent">
+        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(groups_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
           <a>
             <i class="fa fa-book" aria-hidden="true"></i>
             <span>Address Book</span>
           </a>
           <ul class="nav nav-children">
-            <li>
-              <%= link_to 'Group', group_list_index_path %>
+            <li class="<%= 'nav-active' if current_page?(groups_path) %>">
+              <%= link_to 'Group', groups_path %>
             </li>
             <li>
               <%= link_to 'Distribution List', distribution_list_index_path %>

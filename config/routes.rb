@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :groups
+
   get 'single_sms/index'
   get 'bulk_sms/index'
   get 'group_sms/index'
-  get 'group_list/index'
   get 'distribution_list/index'
   get 'credit_details/index'
   get 'today_stats/index'
