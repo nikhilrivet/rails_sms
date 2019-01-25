@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :groups
+  resources :contacts
 
   get 'single_sms/index'
   get 'bulk_sms/index'
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   get 'telnet_connector/index'
 
   post 'single_sms/send_sms'
+  post 'group_sms/send_sms'
 
   post 'delivery_receipt/get_dlr'
 end

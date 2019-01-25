@@ -23,15 +23,15 @@
             <li class="<%= 'nav-active' if current_page?(single_sms_index_path) %>">
               <%= link_to 'Single SMS', single_sms_index_path %>
             </li>
-            <li>
+            <!--<li>
               <%= link_to 'Bulk SMS', bulk_sms_index_path %>
-            </li>
-            <li>
+            </li>-->
+            <li class="<%= 'nav-active' if current_page?(group_sms_index_path) %>">
               <%= link_to 'Group SMS', group_sms_index_path %>
             </li>
           </ul>
         </li>
-        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(groups_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
+        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(groups_path) %>">
           <a>
             <i class="fa fa-book" aria-hidden="true"></i>
             <span>Address Book</span>
@@ -40,9 +40,9 @@
             <li class="<%= 'nav-active' if current_page?(groups_path) %>">
               <%= link_to 'Group', groups_path %>
             </li>
-            <li>
+            <!--<li>
               <%= link_to 'Distribution List', distribution_list_index_path %>
-            </li>
+            </li>-->
           </ul>
         </li>
         <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(sms_reports_index_path)%>">
@@ -54,18 +54,18 @@
             <li>
               <%= link_to 'Credit Details', credit_details_index_path %>
             </li>
-            <li>
+            <!--<li>
               <%= link_to "Today's Stats", today_stats_index_path %>
-            </li>
+            </li>-->
             <li class="<%= 'nav-active' if current_page?(sms_reports_index_path) %>" >
               <%= link_to 'SMS Reports', sms_reports_index_path %>
             </li>
             <li>
               <%= link_to 'SMS Summary', sms_summary_index_path %>
             </li>
-            <li>
+            <!--<li>
               <%= link_to 'Acculync', acculync_index_path %>
-            </li>
+            </li>-->
           </ul>
         </li>
         <li class="">

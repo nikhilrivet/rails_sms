@@ -24,6 +24,7 @@
           <td><%= group.name %></td>
           <td>5</td>
           <td class="actions">
+            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, group_path(group), 'class': 'on-default' %>
             <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_group_path(group), 'class': 'on-default' %>
             <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, group_path(group), method: :delete,
                         data: {confirm: "Are you sure you want to delete the group?"},

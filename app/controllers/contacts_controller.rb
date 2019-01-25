@@ -1,4 +1,4 @@
-class GroupsController < ApplicationController
+class ContactsController < ApplicationController
   def index
     @groups = Group.where(:user_id => current_user.id)
   end
@@ -6,7 +6,6 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @contact = Contact.new
-    @contacts = Contact.where(:group_id => params[:id])
   end
 
   def new
@@ -18,14 +17,10 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @save_params = {
-        name: group_params["name"],
-        user_id: current_user.id
-    }
-    @group = Group.new(@save_params)
+    @contact = Contact.new(contact_params)
 
-    if @group.save
-      redirect_to groups_path
+    if @contact.save
+      redirect_back(fallback_location: authenticated_root_path)
     else
       render 'new'
     end
@@ -42,14 +37,14 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @gruop = Group.find(params[:id])
-    @gruop.destroy
+    @contact = Contact.find(params[:id])
+    @contact.destroy
 
-    redirect_to groups_path
+    redirect_back(fallback_location: authenticated_root_path)
   end
 
   private
-  def group_params
-    params.require(:group).permit(:name)
+  def contact_params
+    params.require(:contact).permit(:name, :number, :group_id)
   end
 end

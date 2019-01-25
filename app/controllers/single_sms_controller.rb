@@ -20,7 +20,7 @@ class SingleSmsController < ApplicationController
 
     @response = Net::HTTP.get_response(uri)
     @message_id = @response.body.from(9).to(-2)
-    @message = Message.create(phone: @phone_number, sender: @sender, message: @message, message_id: @message_id, message_status: 'UNDELIV')
+    @message = Message.create(phone: @phone_number, sender: @sender, message: @message, message_id: @message_id, message_status: 'PENDING')
     flash[:message] = "Success: Message sent successfully."
 
     redirect_to single_sms_index_path, locals: {response: @response}
