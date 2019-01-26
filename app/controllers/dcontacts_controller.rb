@@ -1,4 +1,6 @@
 class DcontactsController < ApplicationController
+  require 'csv'
+
   def index
     @groups = Group.where(:user_id => current_user.id)
   end
@@ -28,8 +30,23 @@ class DcontactsController < ApplicationController
       end
     end
 
-    @filename = params[:file]
+    rowarray = Array.new
+    myfile = params[:file]
 
+    @rowarraydisp = CSV.read(myfile.path)
+    byebug
+
+=begin
+    @filename = params[:file].read
+    @filename.each_line do |line|
+      line_to = line.to_s
+      byebug
+      @dcontact = Dcontact.new
+      @dcontact.number =  line
+      @dcontact.distribution_id = @distribution_id
+    end
+=end
+=begin
     if @filename.respond_to?(:read)
       @lines = @filename.read
     elsif @filename.respond_to?(:path)
@@ -38,6 +55,7 @@ class DcontactsController < ApplicationController
       logger.error "Bad file_data: #{@filename.class.name}: #
     {@filename.inspect}"
     end
+=end
 
     redirect_back(fallback_location: authenticated_root_path)
 
