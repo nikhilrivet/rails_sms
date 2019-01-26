@@ -1,0 +1,3 @@
+class Dcontact < ApplicationRecord
+
+end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :groups
   resources :contacts
+  resources :distributions
 
   get 'single_sms/index'
   get 'bulk_sms/index'

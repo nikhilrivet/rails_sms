@@ -40,9 +40,9 @@
             <li class="<%= 'nav-active' if current_page?(groups_path) %>">
               <%= link_to 'Group', groups_path %>
             </li>
-            <!--<li>
-              <%= link_to 'Distribution List', distribution_list_index_path %>
-            </li>-->
+            <li>
+              <%= link_to 'Distribution List', distributions_path %>
+            </li>
           </ul>
         </li>
         <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(sms_reports_index_path)%>">

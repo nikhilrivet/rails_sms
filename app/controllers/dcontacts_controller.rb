@@ -1,0 +1,2 @@
+class DcontactsController < ApplicationController
+end
