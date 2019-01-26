@@ -2,21 +2,23 @@
 <!-- Modal Form -->
 <div id="modalForm" class="modal-block modal-block-primary mfp-hide">
   <section class="panel">
-    <header class="panel-heading">
-      <h2 class="panel-title">List Number Import</h2>
-    </header>
-    <div class="panel-body">
-      <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+    <%= form_for(@dcontact, html: {class: "form-horizontal", role:"form", multipart: true}) do |f| %>
+      <header class="panel-heading">
+        <h2 class="panel-title">List Number Import</h2>
+      </header>
+      <div class="panel-body">
         <div class="form-group">
           <label class="col-sm-3 control-label">Numbers</label>
           <div class="col-sm-9">
-            <textarea rows="5" class="form-control" placeholder="Type your comment..." required></textarea>
+            <textarea name="numbers" rows="5" class="form-control" placeholder="Type your comment..."></textarea>
+            <input type="hidden" value="<%= @distribution.id %>" name="distribution_id"/>
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-3 control-label">File Upload</label>
           <div class="col-md-9">
-            <div class="fileupload fileupload-new" data-provides="fileupload">
+            <input type="file" name="file"/>
+            <!--<div class="fileupload fileupload-new" data-provides="fileupload">
               <div class="input-append">
                 <div class="uneditable-input">
                   <i class="fa fa-file fileupload-exists"></i>
@@ -29,19 +31,20 @@
 															</span>
                 <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
-      </form>
-    </div>
-    <footer class="panel-footer">
-      <div class="row">
-        <div class="col-md-12 text-right">
-          <button class="btn btn-primary modal-confirm">Submit</button>
-          <button class="btn btn-default modal-dismiss">Cancel</button>
-        </div>
       </div>
-    </footer>
+      <footer class="panel-footer">
+        <div class="row">
+          <div class="col-md-12 text-right">
+            <%= f.submit 'Add', class: 'btn btn-primary' %>
+            <button class="btn btn-primary modal-confirm" type="submit">Submit</button>
+            <button class="btn btn-default modal-dismiss">Cancel</button>
+          </div>
+        </div>
+      </footer>
+    <% end %>
   </section>
 </div>
 
@@ -58,18 +61,18 @@
       <tr>
         <th>Number</th>
         <th>Contact Name</th>
-        <th>Mobie Number</th>
+        <th>Mobile Number</th>
         <th>Actions</th>
       </tr>
       </thead>
       <tbody>
-      <% @contacts.each_with_index do |contact,index| %>
+      <% @dcontacts.each_with_index do |dcontact,index| %>
         <tr class="gradeX">
           <td><%= index +1 %></td>
-          <td><%= contact.name %></td>
-          <td><%= contact.number %></td>
+          <td><%= dcontact.number %></td>
+          <td><%= dcontact.number %></td>
           <td class="actions">
-            <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, contact_path(contact), method: :delete,
+            <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, dcontact_path(dcontact), method: :delete,
                         data: {confirm: "Are you sure you want to delete the contact?"},
                         class: "on-default" %>
             <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>

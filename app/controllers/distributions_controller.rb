@@ -4,9 +4,9 @@ class DistributionsController < ApplicationController
   end
 
   def show
-    @group = Distribution.find(params[:id])
-    @contact = Contact.new
-    @contacts = Contact.where(:group_id => params[:id])
+    @distribution = Distribution.find(params[:id])
+    @dcontact = Dcontact.new
+    @dcontacts = Dcontact.where(:distribution_id => params[:id])
   end
 
   def new
