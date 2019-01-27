@@ -30,30 +30,49 @@ class DcontactsController < ApplicationController
       end
     end
 
+=begin
     rowarray = Array.new
+=end
+=begin
     myfile = params[:file]
 
     @rowarraydisp = CSV.read(myfile.path)
-    byebug
+    @rowarraydisp.each do |row|
+      @dcontact = Dcontact.new
+      @dcontact.number =  row
+      @dcontact.distribution_id = @distribution_id
+      if !@dcontact.save
+        render 'new'
+      end
+    end
+=end
 
 =begin
     @filename = params[:file].read
     @filename.each_line do |line|
       line_to = line.to_s
-      byebug
       @dcontact = Dcontact.new
-      @dcontact.number =  line
+      @dcontact.number =  line_to
       @dcontact.distribution_id = @distribution_id
     end
 =end
-=begin
+    @filename = params[:file].read
     if @filename.respond_to?(:read)
       @lines = @filename.read
+      byebug
     elsif @filename.respond_to?(:path)
       @lines = File.read(@filename.path)
+      byebug
     else
       logger.error "Bad file_data: #{@filename.class.name}: #
     {@filename.inspect}"
+    end
+
+=begin
+    @lines.each do |line|
+      @dcontact = Dcontact.new
+      @dcontact.number =  line
+      @dcontact.distribution_id = @distribution_id
     end
 =end
 
