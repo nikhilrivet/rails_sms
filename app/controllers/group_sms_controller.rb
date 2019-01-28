@@ -35,6 +35,7 @@ class GroupSmsController < ApplicationController
     end
 
     if params[:todistribution]
+
       @todistributions.each do |item|
         dcontacts =Dcontact.where(:distribution_id => item.to_i)
 

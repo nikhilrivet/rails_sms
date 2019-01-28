@@ -22,7 +22,17 @@ class DcontactsController < ApplicationController
     @distribution_id = params[:distribution_id]
     if params[:numbers]
       @numbers = params[:numbers].split("\r\n")
+      if @numbers.uniq.length != @numbers.length
+        flash[:danger] = "Dose not contain duplicate numbers"
+        redirect_back(fallback_location: authenticated_root_path)
+        return
+      end
       @numbers.each do |number|
+        if is_numeric?number
+          flash[:danger] = "Allow Numbers"
+          redirect_back(fallback_location: authenticated_root_path)
+          return
+        end
         @dcontact = Dcontact.new
         @dcontact.number =  number
         @dcontact.distribution_id = @distribution_id
@@ -40,10 +50,27 @@ class DcontactsController < ApplicationController
 
       myfile = params[:file]
 
+      if myfile.content_type != "text/plain" && myfile.content_type != "text/csv"
+        flash[:danger] = "File Type is txt or csv"
+        redirect_back(fallback_location: authenticated_root_path)
+        return
+      end
+
       @rowarraydisp = CSV.read(myfile.path)
+      if @rowarraydisp.uniq.length != @rowarraydisp.length
+        flash[:danger] = "Dose not contain duplicate numbers"
+        redirect_back(fallback_location: authenticated_root_path)
+        return
+      end
       @rowarraydisp.each do |row|
+        if is_numeric?row.first
+          flash[:danger] = "Allow Numbers"
+          redirect_back(fallback_location: authenticated_root_path)
+          return
+        end
         @dcontact = Dcontact.new
         @dcontact.number =  row.first
+
         @dcontact.distribution_id = @distribution_id
         if !@dcontact.save
           render 'new'
@@ -98,10 +125,14 @@ class DcontactsController < ApplicationController
   end
 
   def destroy
-    @contact = Contact.find(params[:id])
-    @contact.destroy
+    @dcontact = Dcontact.find(params[:id])
+    @dcontact.destroy
 
     redirect_back(fallback_location: authenticated_root_path)
+  end
+
+  def is_numeric?(obj)
+    obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
   end
 
   private
