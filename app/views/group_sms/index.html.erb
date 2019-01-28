@@ -1,4 +1,21 @@
+<section class="panel">
+  <header class="panel-heading">
+    <div class="panel-actions">
+      <a href="#" class="fa fa-caret-down"></a>
+      <a href="#" class="fa fa-times"></a>
+    </div>
 
+    <h2 class="panel-title">Default Notifications</h2>
+  </header>
+  <div class="panel-body">
+    <button id="default-primary" class="mt-sm mb-sm btn btn-primary">Primary</button>
+    <button id="default-notice" class="mt-sm mb-sm btn btn-warning">Warning</button>
+    <button id="default-success" class="mt-sm mb-sm btn btn-success">Success</button>
+    <button id="default-info" class="mt-sm mb-sm btn btn-info">Info</button>
+    <button id="default-error" class="mt-sm mb-sm btn btn-danger">Error</button>
+    <button id="default-dark" class="mt-sm mb-sm btn btn-dark">Dark</button>
+  </div>
+</section>
 <!-- start: page -->
 <div class="row">
   <div class="col-md-12">
@@ -34,6 +51,16 @@
               <select name="togroup[]" class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "includeSelectAllOption": true }' id="ms_example5">
                 <% @groups.each do |group|%>
                   <option value="<%= group.id %>"><%= group.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label">Distributions</label>
+            <div class="col-md-6">
+              <select name="todistribution[]" class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "includeSelectAllOption": true }' id="ms_example5">
+                <% @distributions.each do |distribution|%>
+                    <option value="<%= distribution.id %>"><%= distribution.name %></option>
                 <% end %>
               </select>
             </div>

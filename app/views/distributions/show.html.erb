@@ -51,9 +51,10 @@
 <section class="panel">
   <header class="panel-heading">
     <div class="pull-right">
-      <a class="modal-with-form" href="#modalForm">Import Number</a>
+      <a class="btn" href="#modalForm">Import Number</a>
+      <%= link_to 'Back', distributions_path, 'class': 'btn' %>
     </div>
-    <h2 class="panel-title">Contact List</h2>
+    <h2 class="panel-title"><%= @distribution.name %></h2>
   </header>
   <div class="panel-body">
     <table class="table table-bordered table-striped mb-none" id="datatable-editable">
