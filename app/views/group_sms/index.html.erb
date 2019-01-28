@@ -30,7 +30,7 @@
           <div class="form-group">
             <label class="col-md-2 control-label">Groups</label>
             <div class="col-md-6">
-              <select name="togroup[]" class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "includeSelectAllOption": true }' id="ms_example5">
+              <select name="togroup[]" class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "includeSelectAllOption": true }' id="ms_example6">
                 <% @groups.each do |group|%>
                   <option value="<%= group.id %>"><%= group.name %></option>
                 <% end %>
@@ -123,6 +123,7 @@
         </footer>
       </section>
     <% end %>
+
   </div>
 </div>
 <!-- end: page -->

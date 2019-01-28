@@ -1,62 +1,16 @@
-<!--<header class="page-header">
-  <h2>SMS Reports</h2>
-
-  <div class="right-wrapper pull-right">
-    <ol class="breadcrumbs">
-      <li>
-        <a href="index.html">
-          <i class="fa fa-home"></i>
-        </a>
-      </li>
-      <li><span>Reports</span></li>
-      <li><span>SMS Reports</span></li>
-    </ol>
-
-    <span class="sidebar-right-toggle"></span>
-  </div>
-</header>-->
-
-<!-- start: page -->
-<!--<div class="row">
-  <div class="col-md-12">
-    <form id="form" action="forms-validation.html" class="form-horizontal">
-      <section class="panel">
-        <header class="panel-heading">
-          <h2 class="panel-title">SMS Reports</h2>
-        </header>
-        <div class="panel-body">
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Select Log Type: <span class="required">*</span></label>
-            <div class="col-sm-9">
-              <div class="radio-custom radio-primary radio-inline">
-                <input id="awesome" name="porto_is" type="radio" value="awesome" required />
-                <label for="awesome">Today's Log</label>
-              </div>
-              <div class="radio-custom radio-primary radio-inline">
-                <input id="very-awesome" name="porto_is" type="radio" value="very-awesome" />
-                <label for="very-awesome">Export Log</label>
-              </div>
-              <label class="error" for="porto_is"></label>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <button class="btn btn-primary">Search</button>
-          </div>
-        </div>
-      </section>
-    </form>
-  </div>
-</div>-->
 <section class="panel">
   <header class="panel-heading">
     <h2 class="panel-title">SMS Reports</h2>
   </header>
   <div class="panel-body">
-    <table class="table table-bordered table-striped mb-none" id="datatable-editable">
+    <table class="table table-bordered table-striped mb-none" id="datatable-editable-reports">
       <thead>
       <tr>
+        <th>No</th>
+        <th>Message_id</th>
         <th>Source</th>
         <th>Destination</th>
+        <th>Content</th>
         <th>Status</th>
         <th>Submit Time</th>
       </tr>
@@ -64,10 +18,13 @@
       <tbody>
       <% @messages.each_with_index do |message,index| %>
         <tr class="gradeA">
+          <td><%= index+1 %></td>
+          <td><%= message.message_id %></td>
           <td><%= message.sender %></td>
           <td><%= message.phone %></td>
+          <td><%= message.message %></td>
           <td><%= message.message_status %></td>
-          <td><%= message.created_at %></td>
+          <td><%= message.created_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
         </tr>
       <% end %>
       </tbody>

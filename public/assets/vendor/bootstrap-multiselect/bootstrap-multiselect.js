@@ -93,7 +93,7 @@
         this.options.onChange = $.proxy(this.options.onChange, this);
         this.options.onDropdownShow = $.proxy(this.options.onDropdownShow, this);
         this.options.onDropdownHide = $.proxy(this.options.onDropdownHide, this);
-
+        //alert();
         // Build select all if enabled.
         this.buildContainer();
         this.buildButton();
