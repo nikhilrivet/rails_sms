@@ -56,11 +56,10 @@
     <h2 class="panel-title"><%= @distribution.name %></h2>
   </header>
   <div class="panel-body">
-    <table class="table table-bordered table-striped mb-none" id="datatable-editable">
+    <table class="table table-bordered table-striped mb-none" id="datatable-editable1">
       <thead>
       <tr>
         <th>Number</th>
-        <th>Contact Name</th>
         <th>Mobile Number</th>
         <th>Actions</th>
       </tr>
@@ -69,7 +68,6 @@
       <% @dcontacts.each_with_index do |dcontact,index| %>
         <tr class="gradeX">
           <td><%= index +1 %></td>
-          <td><%= dcontact.number %></td>
           <td><%= dcontact.number %></td>
           <td class="actions">
             <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, dcontact_path(dcontact), method: :delete,
