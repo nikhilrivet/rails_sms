@@ -22,7 +22,7 @@
         <tr class="gradeX">
           <td><%= index +1 %></td>
           <td><%= group.name %></td>
-          <td>5</td>
+          <td><%= group.contacts.count %></td>
           <td class="actions">
             <%= link_to '<i class="fa fa-eye"></i>'.html_safe, group_path(group), 'class': 'on-default' %>
             <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_group_path(group), 'class': 'on-default' %>
