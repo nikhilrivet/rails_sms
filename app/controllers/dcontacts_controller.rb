@@ -19,31 +19,38 @@ class DcontactsController < ApplicationController
   end
 
   def create
-    @numbers = params[:numbers].split("\r\n")
     @distribution_id = params[:distribution_id]
-    @numbers.each do |number|
-      @dcontact = Dcontact.new
-      @dcontact.number =  number
-      @dcontact.distribution_id = @distribution_id
-      if !@dcontact.save
-        render 'new'
+    if params[:numbers]
+      @numbers = params[:numbers].split("\r\n")
+      @numbers.each do |number|
+        @dcontact = Dcontact.new
+        @dcontact.number =  number
+        @dcontact.distribution_id = @distribution_id
+        if !@dcontact.save
+          render 'new'
+        end
       end
     end
+
 
 =begin
     rowarray = Array.new
 =end
-    myfile = params[:file]
+    if params[:file]
 
-    @rowarraydisp = CSV.read(myfile.path)
-    @rowarraydisp.each do |row|
-      @dcontact = Dcontact.new
-      @dcontact.number =  row.first
-      @dcontact.distribution_id = @distribution_id
-      if !@dcontact.save
-        render 'new'
+      myfile = params[:file]
+
+      @rowarraydisp = CSV.read(myfile.path)
+      @rowarraydisp.each do |row|
+        @dcontact = Dcontact.new
+        @dcontact.number =  row.first
+        @dcontact.distribution_id = @distribution_id
+        if !@dcontact.save
+          render 'new'
+        end
       end
     end
+
 
 =begin
     @filename = params[:file].read
