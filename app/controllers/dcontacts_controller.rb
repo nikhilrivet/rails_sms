@@ -28,7 +28,7 @@ class DcontactsController < ApplicationController
         return
       end
       @numbers.each do |number|
-        if is_numeric?number
+        unless is_numeric?number
           flash[:danger] = "Allow Numbers"
           redirect_back(fallback_location: authenticated_root_path)
           return
@@ -63,7 +63,7 @@ class DcontactsController < ApplicationController
         return
       end
       @rowarraydisp.each do |row|
-        if is_numeric?row.first
+        unless is_numeric?row.first
           flash[:danger] = "Allow Numbers"
           redirect_back(fallback_location: authenticated_root_path)
           return
