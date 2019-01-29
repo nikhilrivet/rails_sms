@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87b605b5-3f4e-42bd-9fd7-004e9783e375" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="production.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+            <state relative-caret-position="375">
+              <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -134,7 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>order</find>
       <find>multiselect_selected</find>
       <find>advanced</find>
       <find>multiselect dropdown-toggle</find>
@@ -164,6 +162,7 @@
       <find>config.assets.quiet</find>
       <find>config.public_file_server.enabled</find>
       <find>config.file_watcher</find>
+      <find>asset</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -691,12 +690,12 @@
       <workItem from="1548484326653" duration="26807000" />
       <workItem from="1548617946649" duration="31659000" />
       <workItem from="1548741775784" duration="284000" />
-      <workItem from="1548742731453" duration="11704000" />
+      <workItem from="1548742731453" duration="11867000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275885000" />
+    <option name="totallyTimeSpent" value="276048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1795" height="1036" extended-state="6" />
@@ -1141,8 +1140,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+        <state relative-caret-position="375">
+          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
           <folding />
         </state>
       </provider>
