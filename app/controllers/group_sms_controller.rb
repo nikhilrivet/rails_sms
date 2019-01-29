@@ -35,20 +35,24 @@ class GroupSmsController < ApplicationController
     end
 
     if params[:todistribution]
+      @contact_numbers = Array.new()
 
       @todistributions.each do |item|
         dcontacts =Dcontact.where(:distribution_id => item.to_i)
 
         dcontacts.each do |dcontact|
-          params = { :username => 'foo', :password => 'bar',
-                     :to => dcontact.number, 'content' => message.encode("UTF-16BE"),:from => @sender ,
-                     :coding => 8,
-                     :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url}
-          uri.query = URI.encode_www_form(params)
+          unless @contact_numbers.include? dcontact.number
+            @contact_numbers.push(dcontact.number)
+            params = { :username => 'foo', :password => 'bar',
+                       :to => dcontact.number, 'content' => message.encode("UTF-16BE"),:from => @sender ,
+                       :coding => 8,
+                       :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url}
+            uri.query = URI.encode_www_form(params)
 
-          @response = Net::HTTP.get_response(uri)
-          @message_id = @response.body.from(9).to(-2)
-          @message = Message.create(phone: dcontact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id)
+            @response = Net::HTTP.get_response(uri)
+            @message_id = @response.body.from(9).to(-2)
+            @message = Message.create(phone: dcontact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id)
+          end
         end
       end
     end
