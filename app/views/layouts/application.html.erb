@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>SmsRivet</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -38,7 +41,7 @@
     <script src="/assets/vendor/modernizr/modernizr.js"></script>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="/assets/vendor/jquery/jquery.js"></script>
+
   </head>
   <body>
     <section class="body">
@@ -59,7 +62,7 @@
     </section>
 
     <!-- Vendor -->
-
+    <script src="/assets/vendor/jquery/jquery.js"></script>
     <script src="/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.js"></script>
     <script src="/assets/vendor/nanoscroller/nanoscroller.js"></script>
@@ -117,6 +120,6 @@
     <script src="/assets/javascripts/tables/reports.datatables.editable.js"></script>
     <script src="/assets/javascripts/dashboard/single.sms.js"></script>
     <script src="/assets/javascripts/ui-elements/examples.modals.js"></script>
-
+    <script src="/assets/javascripts/forms/examples.advanced.form.js"></script>
   </body>
 </html>
