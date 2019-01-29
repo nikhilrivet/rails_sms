@@ -27,7 +27,6 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -40,7 +39,11 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
-
+  config.active_support.deprecation = :log
+  config.active_record.migration_error = :page_load
+  config.active_record.verbose_query_logs = true
+  config.assets.debug = true
+  config.assets.quiet = true
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
@@ -90,5 +93,6 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.active_record.dump_schema_after_migration = false
 end
