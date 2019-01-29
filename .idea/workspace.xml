@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87b605b5-3f4e-42bd-9fd7-004e9783e375" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -21,8 +22,8 @@
       <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+            <state relative-caret-position="432">
+              <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -690,12 +691,12 @@
       <workItem from="1548484326653" duration="26807000" />
       <workItem from="1548617946649" duration="31659000" />
       <workItem from="1548741775784" duration="284000" />
-      <workItem from="1548742731453" duration="7938000" />
+      <workItem from="1548742731453" duration="8943000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="272119000" />
+    <option name="totallyTimeSpent" value="273124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1795" height="1036" extended-state="6" />
@@ -1138,8 +1139,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        <state relative-caret-position="432">
+          <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
           <folding />
         </state>
       </provider>
