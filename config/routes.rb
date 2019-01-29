@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'credit_details/index'
   get 'today_stats/index'
   get 'sms_reports/index'
+  get 'sms_reports/reports'
   get 'sms_summary/index'
   get 'acculync/index'
   get 'user_profile/index'

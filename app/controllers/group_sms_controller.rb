@@ -29,7 +29,7 @@ class GroupSmsController < ApplicationController
 
           @response = Net::HTTP.get_response(uri)
           @message_id = @response.body.from(9).to(-2)
-          @message = Message.create(phone: contact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING')
+          @message = Message.create(phone: contact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id)
         end
       end
     end
@@ -48,7 +48,7 @@ class GroupSmsController < ApplicationController
 
           @response = Net::HTTP.get_response(uri)
           @message_id = @response.body.from(9).to(-2)
-          @message = Message.create(phone: dcontact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING')
+          @message = Message.create(phone: dcontact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id)
         end
       end
     end
