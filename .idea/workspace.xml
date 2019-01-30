@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/app/controllers/group_sms_controller.rb" line="38" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/app/controllers/group_sms_controller.rb" line="37" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87b605b5-3f4e-42bd-9fd7-004e9783e375" name="Default" comment="">
@@ -44,8 +44,8 @@
       <file leaf-file-name="group_sms_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/group_sms_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+            <state relative-caret-position="249">
+              <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -662,12 +662,12 @@
       <workItem from="1548617946649" duration="31659000" />
       <workItem from="1548741775784" duration="284000" />
       <workItem from="1548742731453" duration="27412000" />
-      <workItem from="1548833933628" duration="2898000" />
+      <workItem from="1548833933628" duration="2942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294491000" />
+    <option name="totallyTimeSpent" value="294535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1795" height="1036" extended-state="6" />
@@ -1074,8 +1074,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/group_sms_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+        <state relative-caret-position="249">
+          <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
           <folding />
         </state>
       </provider>
