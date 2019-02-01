@@ -14,7 +14,7 @@ class GroupSmsController < ApplicationController
 
 
     uri = URI('http://66.42.104.90:1401/send')
-    dlr_url = 'http://smpplive.com:3000/delivery_receipt/get_dlr'
+    dlr_url = 'http://smpplive.com/delivery_receipt/get_dlr'
 
     if params[:togroup]
       @togroups.each do |item|

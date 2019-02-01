@@ -11,7 +11,7 @@ class SingleSmsController < ApplicationController
     content = "ازرع اسنانك بيوم واحد وبدون ألم مع ضمان مدى الحياة0551081988"
 
     uri = URI('http://66.42.104.90:1401/send')
-    dlr_url = 'http://smpplive.com:3000/delivery_receipt/get_dlr'
+    dlr_url = 'http://smpplive.com/delivery_receipt/get_dlr'
     params = { :username => 'foo', :password => 'bar',
                :to => @phone_number, 'content' => @message.encode("UTF-16BE"),:from => @sender ,
                :coding => 8,
