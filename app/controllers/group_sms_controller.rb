@@ -58,7 +58,6 @@ class GroupSmsController < ApplicationController
       end
     end
 
-
     flash[:success] = "Success: Message sent successfully."
     redirect_to group_sms_index_path, locals: {response: @response}
   end
