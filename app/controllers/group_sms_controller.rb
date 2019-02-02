@@ -34,6 +34,7 @@ class GroupSmsController < ApplicationController
       end
     end
 
+
     if params[:todistribution]
       
       @contact_numbers = Array.new()
