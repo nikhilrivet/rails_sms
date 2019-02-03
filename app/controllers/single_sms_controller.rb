@@ -12,7 +12,9 @@ class SingleSmsController < ApplicationController
 
     uri = URI('http://66.42.104.90:1401/send')
     dlr_url = 'http://smpplive.com/delivery_receipt/get_dlr'
-    params = { :username => 'foo', :password => 'bar',
+    user_name = current_user.username
+
+    params = { :username => user_name, :password => 'bar',
                :to => @phone_number, 'content' => @message.encode("UTF-16BE"),:from => @sender ,
                :coding => 8,
                :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url}
