@@ -50,9 +50,21 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Sender</label>
             <div class="col-sm-9">
-              <input type="text" name="sender" class="form-control" placeholder="" value="" required/>
+              <select id="sender" name="sender" class="form-control" required>
+                <option value="">Select</option>
+                <% @senders.each_with_index do |sender,index| %>
+                    <option value="<%= sender.name %>"><%= sender.name %></option>
+                <% end %>
+              </select>
+              <label class="error" for="company"></label>
             </div>
           </div>
+          <!--<div class="form-group">
+            <label class="col-sm-2 control-label">Sender</label>
+            <div class="col-sm-9">
+              <input type="text" name="sender" class="form-control" placeholder="" value="" required/>
+            </div>
+          </div>-->
           <!--<div class="form-group">
             <label class="col-sm-2 control-label">Message Type</label>
             <div class="col-sm-9">

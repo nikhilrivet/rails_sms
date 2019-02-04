@@ -2,6 +2,7 @@ class GroupSmsController < ApplicationController
   def index
     @groups = Group.where(:user_id => current_user.id)
     @distributions = Distribution.where(:user_id => current_user.id)
+    @senders = Sender.where(:user_id => current_user.id)
   end
 
   def send_sms
@@ -28,8 +29,16 @@ class GroupSmsController < ApplicationController
           uri.query = URI.encode_www_form(params)
 
           @response = Net::HTTP.get_response(uri)
+          @message_status = @response.body.from(0).to(6)
+          if @message_status == 'Success'
+            message_send_status = 1
+            @message_str = "Success: Message sent successfully."
+          else
+            message_send_status = 0
+            @message_str = "Fail: Message cannot send successfully."
+          end
           @message_id = @response.body.from(9).to(-2)
-          @message = Message.create(phone: contact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id)
+          @message = Message.create(phone: contact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id, message_send_status: message_send_status)
         end
       end
     end
@@ -53,13 +62,21 @@ class GroupSmsController < ApplicationController
 
             @response = Net::HTTP.get_response(uri)
             @message_id = @response.body.from(9).to(-2)
-            @message = Message.create(phone: dcontact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id)
+            @message_status = @response.body.from(0).to(6)
+            if @message_status == 'Success'
+              message_send_status = 1
+              @message_str = "Success: Message sent successfully."
+            else
+              message_send_status = 0
+              @message_str = "Fail: Message cannot send successfully."
+            end
+            @message = Message.create(phone: dcontact.number, sender: @sender, message: message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id, message_send_status: message_send_status)
           end
         end
       end
     end
 
-    flash[:success] = "Success: Message sent successfully."
+    flash[:success] = @message_str
     redirect_to group_sms_index_path, locals: {response: @response}
   end
 end

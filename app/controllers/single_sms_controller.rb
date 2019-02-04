@@ -1,6 +1,6 @@
 class SingleSmsController < ApplicationController
   def index
-
+    @senders = Sender.where(:user_id => current_user.id)
   end
 
   def send_sms
@@ -21,9 +21,17 @@ class SingleSmsController < ApplicationController
     uri.query = URI.encode_www_form(params)
 
     @response = Net::HTTP.get_response(uri)
+    @message_status = @response.body.from(0).to(6)
+    if @message_status == 'Success'
+      message_send_status = 1
+      @message_str = "Success: Message sent successfully."
+    else
+      message_send_status = 0
+      @message_str = "Fail: Message cannot send successfully."
+    end
     @message_id = @response.body.from(9).to(-2)
-    @message = Message.create(phone: @phone_number, sender: @sender, message: @message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id)
-    flash[:message] = "Success: Message sent successfully."
+    @message = Message.create(phone: @phone_number, sender: @sender, message: @message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id, message_send_status: message_send_status)
+    flash[:message] = @message_str
 
     redirect_to single_sms_index_path, locals: {response: @response}
   end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :groups
+  resources :senders
   resources :contacts
   resources :distributions
   resources :dcontacts
