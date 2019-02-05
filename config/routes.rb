@@ -36,4 +36,10 @@ Rails.application.routes.draw do
   post 'group_sms/send_sms'
 
   post 'delivery_receipt/get_dlr'
+
+  namespace :admin do
+    get 'index/index'
+
+    resources :users
+  end
 end
