@@ -1,4 +1,4 @@
-class GroupSmsController < ApplicationController
+class GroupSmsController < BaseController
   def index
     @groups = Group.where(:user_id => current_user.id)
     @distributions = Distribution.where(:user_id => current_user.id)

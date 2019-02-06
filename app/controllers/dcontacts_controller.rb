@@ -1,4 +1,4 @@
-class DcontactsController < ApplicationController
+class DcontactsController < BaseController
   require 'csv'
 
   def index

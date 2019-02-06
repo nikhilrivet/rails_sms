@@ -1,4 +1,4 @@
-class DistributionsController < ApplicationController
+class DistributionsController < BaseController
   def index
     @distributions = Distribution.where(:user_id => current_user.id)
   end

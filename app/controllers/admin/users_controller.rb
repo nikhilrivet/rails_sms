@@ -22,22 +22,8 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    require 'socket'
-    require 'net/telnet'
-    pop = Net::Telnet::new("Host" => "66.42.104.90",
-                           "Timeout" => 50,
-                           "Port" => 8990,
-                           "Prompt" => /[$%#>] \z/n,
-                           "telnetmode" =>true)
-
-    pop.cmd("jcliadmin\njclipwd\nuser -a") { |c| print c }
-    pop.cmd("username "+user_params[:username]) { |c| print c }
-    pop.cmd("password bar") { |c| print c }
-    pop.cmd("gid foogroup") { |c| print c }
-    pop.cmd("uid "+user_params[:username]) { |c| print c }
-    pop.cmd("mt_messaging_cred quota sms_count "+user_params[:sms_count]) { |c| print c }
-    pop.cmd("ok\nquit") { |c| print c }
-    pop.close
+    jasmin_user = JasminUser.new()
+    jasmin_user.add_user(user_params[:username], user_params[:username], user_params[:sms_count])
     @user = User.new(:username => user_params[:username], :email => user_params[:email], :sms_count => user_params[:sms_count], :role => user_params[:role], :password =>'123456789', :password_confirmation => '123456789')
     if @user.save
       redirect_to admin_users_path

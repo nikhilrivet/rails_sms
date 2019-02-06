@@ -1,4 +1,4 @@
-class SmsReportsController < ApplicationController
+class SmsReportsController < BaseController
   require 'csv'
 
   def index

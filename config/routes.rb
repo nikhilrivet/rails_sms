@@ -41,5 +41,6 @@ Rails.application.routes.draw do
     get 'index/index'
 
     resources :users
+    root to: 'index#index'
   end
 end

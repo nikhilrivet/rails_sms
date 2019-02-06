@@ -1,4 +1,4 @@
-class SingleSmsController < ApplicationController
+class SingleSmsController < BaseController
   def index
     @senders = Sender.where(:user_id => current_user.id)
   end
@@ -10,8 +10,8 @@ class SingleSmsController < ApplicationController
     require 'net/http'
     content = "ازرع اسنانك بيوم واحد وبدون ألم مع ضمان مدى الحياة0551081988"
 
-    uri = URI('http://66.42.104.90:1401/send')
-    dlr_url = 'http://smpplive.com/delivery_receipt/get_dlr'
+    uri = URI(ENV['HTTP_API_HOST'])
+    dlr_url = ENV['DLR_URL']
     user_name = current_user.username
 
     params = { :username => user_name, :password => 'bar',

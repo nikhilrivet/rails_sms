@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+class ContactsController < BaseController
   def index
     @groups = Group.where(:user_id => current_user.id)
   end

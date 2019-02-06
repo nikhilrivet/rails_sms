@@ -1,45 +1,26 @@
 require 'socket'
 require 'net/telnet'
-class Telnet
+class JasminUser
 
   def initialize()
-    @hostname = '95.179.214.39'
-    @port = 8990
+    @telnet = Telnet.new()
+    @server = @telnet.telnet_open
   end
 
-  def telnet_open
-    @server = Net::Telnet::new("Host" => @hostname,
-                           "Timeout" => 50,
-                           "Port" => @port,
-                           "Prompt" => /[$%#>:] \z/n
-    )
-
-    @server.cmd("jcliadmin")
-    @server.cmd("jclipwd")
-    #return @server
-=begin
-    @server.puts('jcliadmin')
-    @server.puts('jclipwd')
-    @server.puts('user -l')
-    line = s.gets
-    while line = s.gets     # Read lines from the socket
-      puts line.chop       # And print with platform line terminator
-    end
-    s.close
-    return "aa"
-=end
-
-  end
-
-  def telnet_close
-    @server.cmd("quit") { |c| print c }
-    @server.close
+  def add_user(username, uid, sms_count)
+    @server.cmd("user -a")
+    @server.cmd("username " + username) { |c| print c }
+    @server.cmd("password bar") { |c| print c }
+    @server.cmd("gid foogroup") { |c| print c }
+    @server.cmd("uid " + uid) { |c| print c }
+    @server.cmd("mt_messaging_cred quota sms_count " + sms_count) { |c| print c }
+    @server.cmd("ok\nquit") { |c| print c }
+    @telnet.telnet_close(@server)
   end
 
   def get_users
-    telnet_open
     users =@server.cmd("user -l")
-    telnet_close
+    @telnet.telnet_close(@server)
     return users
   end
 

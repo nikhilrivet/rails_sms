@@ -1,4 +1,4 @@
-class SendersController < ApplicationController
+class SendersController < BaseController
   def index
     @senders = Sender.where(:user_id => current_user.id)
   end

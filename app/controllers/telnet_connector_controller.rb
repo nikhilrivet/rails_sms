@@ -1,7 +1,9 @@
 require 'socket'
-require 'net/telnet'
 class TelnetConnectorController < ApplicationController
   def index
+    jasmin_user = JasminUser.new()
+    users = jasmin_user.get_users
+    puts users
 =begin
     telnet = Telnet.new()
     telnet.tcp_open
@@ -22,18 +24,19 @@ class TelnetConnectorController < ApplicationController
     end
     s.close
 =end
+=begin
     pop = Net::Telnet::new("Host" => "95.179.214.39",
                                  "Timeout" => 50,
                                  "Port" => 8990,
-                                 "Prompt" => /[$%#>] \z/n,
-                                  "telnetmode" =>true)
+                                 "Prompt" => /[$%#>:] \z/n)
 
-    pop.cmd("jcliadmin\njclipwd\nuser -a") { |c| print c }
-    pop.cmd("username foo") { |c| print c }
-    pop.cmd("password bar") { |c| print c }
-    pop.cmd("gid foogroup") { |c| print c }
-    pop.cmd("uid foo") { |c| print c }
-    pop.cmd("ok") { |c| print c }
-    pop.close
+    pop.cmd("jcliadmin") { |c| print c }
+    pop.cmd("jclipwd") { |c| print c }
+    pop.cmd("user -l") { |c| print c }
+=end
+=begin
+    pop.cmd("jclipwd") { |c| print c }
+    pop.cmd("user -l") { |c| print c }
+=end
   end
 end
