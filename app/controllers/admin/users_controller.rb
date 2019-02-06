@@ -24,7 +24,7 @@ class Admin::UsersController < Admin::BaseController
   def create
     require 'socket'
     require 'net/telnet'
-    pop = Net::Telnet::new("Host" => "95.179.214.39",
+    pop = Net::Telnet::new("Host" => "66.42.104.90",
                            "Timeout" => 50,
                            "Port" => 8990,
                            "Prompt" => /[$%#>] \z/n,
