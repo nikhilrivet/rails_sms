@@ -11,17 +11,17 @@
   <div class="nano-content">
     <nav id="menu" class="nav-main" role="navigation">
       <ul class="nav nav-main">
-        <li class="<%= 'nav-active' if current_page?(authenticated_root_path) %>">
+        <!--<li class="<%= 'nav-active' if current_page?(authenticated_root_path) %>">
           <%= link_to "<i class='fa fa-home' aria-hidden='true'></i><span>Dashboard</span>".html_safe, authenticated_root_path %>
-        </li>
+        </li>-->
         <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(single_sms_index_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
           <a>
             <i class="fa fa-envelope" aria-hidden="true"></i>
-            <span>Send SMS</span>
+            <span>User</span>
           </a>
           <ul class="nav nav-children">
             <li class="<%= 'nav-active' if current_page?(single_sms_index_path) %>">
-              <%= link_to 'Single SMS', single_sms_index_path %>
+              <%= link_to 'Users', admin_users_path %>
             </li>
             <!--<li>
               <%= link_to 'Bulk SMS', bulk_sms_index_path %>
