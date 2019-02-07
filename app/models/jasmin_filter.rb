@@ -13,6 +13,7 @@ class JasminFilter
     @server.cmd("ok") { |c| print c }
     @server.cmd("quit") { |c| print c }
     @telnet.telnet_close(@server)
+    
   end
 
   def start_smppccm(cid)
