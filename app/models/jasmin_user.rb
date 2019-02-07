@@ -1,5 +1,3 @@
-require 'socket'
-require 'net/telnet'
 class JasminUser
 
   def initialize()

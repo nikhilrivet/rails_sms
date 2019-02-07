@@ -8,7 +8,7 @@
 
 		options: {
 			addButton: '#addToTable',
-			table: '#user-datatable-editable',
+			table: '#connector-datatable-editable',
 			dialog: {
 				wrapper: '#dialog',
 				cancelButton: '#dialogCancel',
@@ -39,6 +39,7 @@
 		build: function() {
 			this.datatable = this.$table.DataTable({
 				aoColumns: [
+					null,
 					null,
 					null,
 					null,

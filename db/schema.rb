@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_094612) do
+ActiveRecord::Schema.define(version: 2019_02_07_074637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 2019_02_06_094612) do
   end
 
   create_table "books", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "connectors", force: :cascade do |t|
+    t.string "cid"
+    t.string "host"
+    t.string "port"
+    t.string "session"
+    t.string "username"
+    t.string "password"
+    t.string "status"
+    t.integer "option"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +58,14 @@ ActiveRecord::Schema.define(version: 2019_02_06_094612) do
   create_table "distributions", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "filters", force: :cascade do |t|
+    t.string "fid"
+    t.string "filter_type"
+    t.string "parameter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,6 +95,16 @@ ActiveRecord::Schema.define(version: 2019_02_06_094612) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "message_send_status"
+  end
+
+  create_table "routers", force: :cascade do |t|
+    t.string "router_order"
+    t.string "router_type"
+    t.float "rate"
+    t.string "connector"
+    t.string "filter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "senders", force: :cascade do |t|

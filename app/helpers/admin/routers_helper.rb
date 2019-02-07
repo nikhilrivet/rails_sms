@@ -1,0 +1,2 @@
+module Admin::RoutersHelper
+end
