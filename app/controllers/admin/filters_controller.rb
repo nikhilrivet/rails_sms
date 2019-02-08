@@ -21,9 +21,12 @@ class Admin::FiltersController < Admin::BaseController
   end
 
   def create
-    jasmin_filter = JasminFilter.new()
-    jasmin_filter.add_filter(filter_params[:fid], filter_params[:filter_type], filter_params[:parameter])
     @filter = Filter.new(filter_params)
+    jasmin_filter = JasminFilter.new()
+    unless jasmin_filter.add_filter(filter_params[:fid], filter_params[:filter_type], filter_params[:parameter])
+      render 'new'
+      return
+    end
     if @filter.save
       redirect_to admin_filters_path
     else
@@ -42,6 +45,11 @@ class Admin::FiltersController < Admin::BaseController
 
   def destroy
     @filter = Filter.find(params[:id])
+    jasmin_filter = JasminFilter.new()
+    unless jasmin_filter.delete_filter(@filter.fid)
+      redirect_to admin_filters_path, :notice => "Unable to delete Filter."
+      return
+    end
     @filter.destroy
     redirect_to admin_filters_path, :notice => "Filter deleted."
   end

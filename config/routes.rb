@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: 'users/registrations'  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.
 
   devise_scope :user do
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   post 'single_sms/send_sms'
   post 'group_sms/send_sms'
+  post 'user_profile/update'
 
   post 'delivery_receipt/get_dlr'
 

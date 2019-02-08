@@ -14,13 +14,13 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Type</label>
           <div class="col-sm-9">
-            <%= f.text_field :filter_type, class: 'form-control', required:'true', placeholder:'' %>
+            <%= f.select(:filter_type,  options_for_select([['TransparentFilter', 'TransparentFilter'], ['ConnectorFilter', 'ConnectorFilter'], ['UserFilter', 'UserFilter'], ['GroupFilter', 'GroupFilter'], ['SourceAddrFilter', 'SourceAddrFilter'], ['DestinationAddrFilter', 'DestinationAddrFilter'], ['ShortMessageFilter', 'ShortMessageFilter'], ['DateIntervalFilter', 'DateIntervalFilter'], ['TimeIntervalFilter', 'TimeIntervalFilter'], ['TagFilter', 'TagFilter'], ['EvalPyFilter', 'EvalPyFilter']], 'TransparentFilter'))%>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Parameter</label>
           <div class="col-sm-9">
-            <%= f.text_field :parameter, class: 'form-control', required:'true', placeholder:'' %>
+            <%= f.text_field :parameter, class: 'form-control', placeholder:'' %>
           </div>
         </div>
         <div class="form-group">

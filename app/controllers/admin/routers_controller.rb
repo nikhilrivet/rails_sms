@@ -21,9 +21,12 @@ def edit
 end
 
 def create
-  jasmin_router = JasminRouter.new()
-  jasmin_router.add_router(router_params[:router_order], router_params[:router_type], router_params[:rate], router_params[:connector])
   @router = Router.new(router_params)
+  jasmin_router = JasminRouter.new()
+  unless jasmin_router.add_router(router_params[:router_order], router_params[:router_type], router_params[:rate], router_params[:connector], router_params[:filter])
+    render 'new'
+    return
+  end
   if @router.save
     redirect_to admin_routers_path
   else
@@ -42,6 +45,11 @@ end
 
 def destroy
   @router = Router.find(params[:id])
+  jasmin_router = JasminRouter.new()
+  unless jasmin_router.delete_router(@router.router_order)
+    redirect_to admin_routers_path, :notice => "Unable to delete Router."
+    return
+  end
   @router.destroy
   redirect_to admin_routers_path, :notice => "Router deleted."
 end

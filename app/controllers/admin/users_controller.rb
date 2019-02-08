@@ -22,9 +22,12 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    jasmin_user = JasminUser.new()
-    jasmin_user.add_user(user_params[:username], user_params[:username], user_params[:sms_count])
     @user = User.new(:username => user_params[:username], :email => user_params[:email], :sms_count => user_params[:sms_count], :role => user_params[:role], :password =>'123456789', :password_confirmation => '123456789')
+    jasmin_user = JasminUser.new()
+    unless jasmin_user.add_user(user_params[:username], user_params[:username], user_params[:sms_count])
+      render 'new'
+    end
+
     if @user.save
       redirect_to admin_users_path
     else
@@ -34,6 +37,10 @@ class Admin::UsersController < Admin::BaseController
 
   def update
     @user = User.find(params[:id])
+    jasmin_user = JasminUser.new()
+    unless jasmin_user.update_user(@user.username, user_params[:sms_count])
+      render 'new'
+    end
     if @user.update_attributes(user_params)
       redirect_to admin_users_path, :notice => "User updated."
     else
@@ -42,8 +49,13 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def destroy
-    user = User.find(params[:id])
-    user.destroy
+    @user = User.find(params[:id])
+    jasmin_user = JasminUser.new()
+    unless jasmin_user.delete_user(@user.username)
+      redirect_to admin_users_path, :notice => "Unable to delete user."
+      return
+    end
+    @user.destroy
     redirect_to admin_users_path, :notice => "User deleted."
   end
 

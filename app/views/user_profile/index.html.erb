@@ -1,25 +1,7 @@
-<header class="page-header">
-  <h2>User Profile</h2>
-
-  <div class="right-wrapper pull-right">
-    <ol class="breadcrumbs">
-      <li>
-        <a href="index.html">
-          <i class="fa fa-home"></i>
-        </a>
-      </li>
-      <li><span>User Profile</span></li>
-      <li><span>Group SMS</span></li>
-    </ol>
-
-    <span class="sidebar-right-toggle"></span>
-  </div>
-</header>
-
 <!-- start: page -->
 <div class="row">
   <div class="col-md-12">
-    <form id="form" action="forms-validation.html" class="form-horizontal">
+    <%= form_for(@user, url: user_profile_update_path, html: {class: "form-horizontal", role:"form", method: "post"}) do |f| %>
       <section class="panel">
         <header class="panel-heading">
           <h2 class="panel-title">User Profile</h2>
@@ -30,31 +12,25 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="profileFirstName">UserName</label>
               <div class="col-md-8">
-                <input type="text" class="form-control" id="profileFirstName">
+                <%= f.text_field :username, class: 'form-control', required:'true', disabled: 'disabled', placeholder:'' %>
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-3 control-label" for="profileLastName">Company</label>
               <div class="col-md-8">
-                <input type="text" class="form-control" id="profileLastName">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="profileAddress">Contact Person</label>
-              <div class="col-md-8">
-                <input type="text" class="form-control" id="profileAddress">
+                <%= f.text_field :company, class: 'form-control', placeholder:'' %>
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-3 control-label" for="profileCompany">Mobile Number</label>
               <div class="col-md-8">
-                <input type="text" class="form-control" id="profileCompany">
+                <%= f.text_field :phone, class: 'form-control', placeholder:'' %>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-3 control-label" for="profileCompany">EmailId</label>
+              <label class="col-md-3 control-label" for="profileCompany">Email</label>
               <div class="col-md-8">
-                <input type="text" class="form-control" id="profileCompany">
+                <%= f.text_field :email, class: 'form-control', required:'true', placeholder:'' %>
               </div>
             </div>
           </fieldset>
@@ -64,13 +40,13 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="profileNewPassword">New Password</label>
               <div class="col-md-8">
-                <input type="text" class="form-control" id="profileNewPassword">
+                <%= f.password_field :password, class: 'form-control', autocomplete: "new-password" %>
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-3 control-label" for="profileNewPasswordRepeat">Repeat New Password</label>
               <div class="col-md-8">
-                <input type="text" class="form-control" id="profileNewPasswordRepeat">
+                <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password" %>
               </div>
             </div>
           </fieldset>
@@ -84,7 +60,7 @@
           </div>
         </footer>
       </section>
-    </form>
+    <% end %>
   </div>
 </div>
 <!-- end: page -->

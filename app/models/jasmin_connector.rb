@@ -7,15 +7,27 @@ class JasminConnector
 
   def add_smppccm(cid, host, port, username, password)
     @server.cmd("smppccm -a")
-    @server.cmd("cid " + cid) { |c| print c }
-    @server.cmd("host " + host) { |c| print c }
-    @server.cmd("port " + port) { |c| print c }
-    @server.cmd("username " + username) { |c| print c }
-    @server.cmd("password " + password) { |c| print c }
-    @server.cmd("submit_throughput 110") { |c| print c }
-    @server.cmd("ok") { |c| print c }
-    @server.cmd("quit") { |c| print c }
+    @server.cmd("cid " + cid)
+    @server.cmd("host " + host)
+    @server.cmd("port " + port)
+    @server.cmd("username " + username)
+    @server.cmd("password " + password)
+    @server.cmd("submit_throughput 110")
+    result = @server.cmd("ok")
+    @server.cmd("quit")
     @telnet.telnet_close(@server)
+    status = result.split(/[\r\n]+/)
+    return_value = status[1].include? "Successfully added connector"
+    return return_value
+  end
+
+  def delete_smppccm(cid)
+    result = @server.cmd("smppccm -r " + cid)
+    @server.cmd("quit")
+    @telnet.telnet_close(@server)
+    status = result.split(/[\r\n]+/)
+    return_value = status[1].include? "Successfully removed connector"
+    return return_value
   end
 
   def start_smppccm(cid)

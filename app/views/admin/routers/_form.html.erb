@@ -14,7 +14,7 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Type</label>
           <div class="col-sm-9">
-            <%= f.text_field :router_type, class: 'form-control', required:'true', placeholder:'' %>
+            <%= f.select(:router_type,  options_for_select([['DefaultRoute', 'DefaultRoute'], ['StaticMTRoute', 'StaticMTRoute'], ['RandomRoundrobinMTRoute', 'RandomRoundrobinMTRoute'], ['FailoverMTRoute', 'FailoverMTRoute']], 'DefaultRoute'))%>
           </div>
         </div>
         <div class="form-group">

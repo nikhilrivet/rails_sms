@@ -14,13 +14,13 @@
         <!--<li class="<%= 'nav-active' if current_page?(authenticated_root_path) %>">
           <%= link_to "<i class='fa fa-home' aria-hidden='true'></i><span>Dashboard</span>".html_safe, authenticated_root_path %>
         </li>-->
-        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(single_sms_index_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
+        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(admin_users_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
           <a>
-            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <i class="fa fa-users" aria-hidden="true"></i>
             <span>Customers</span>
           </a>
           <ul class="nav nav-children">
-            <li class="<%= 'nav-active' if current_page?(single_sms_index_path) %>">
+            <li class="<%= 'nav-active' if current_page?(admin_users_path) %>">
               <%= link_to 'Users', admin_users_path %>
             </li>
             <!--<li>
@@ -31,30 +31,30 @@
             </li>-->
           </ul>
         </li>
-        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(groups_path) || current_page?(distributions_path) || current_page?(senders_path) %>">
+        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(admin_connectors_path) || current_page?(distributions_path) || current_page?(senders_path) %>">
           <a>
-            <i class="fa fa-book" aria-hidden="true"></i>
+            <i class="fa fa-cubes" aria-hidden="true"></i>
             <span>Providers</span>
           </a>
           <ul class="nav nav-children">
-            <li class="<%= 'nav-active' if current_page?(groups_path) %>">
+            <li class="<%= 'nav-active' if current_page?(admin_connectors_path) %>">
               <%= link_to 'Connectors', admin_connectors_path %>
             </li>
           </ul>
         </li>
-        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(sms_reports_index_path)%>">
+        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(admin_routers_path) || current_page?(admin_filters_path) %>">
           <a>
-            <i class="fa fa-list-alt" aria-hidden="true"></i>
+            <i class="fa fa-cog" aria-hidden="true"></i>
             <span>Configuration</span>
           </a>
           <ul class="nav nav-children">
-            <li>
+            <li class="<%= 'nav-active' if current_page?(admin_filters_path) %>">
               <%= link_to 'Filters', admin_filters_path %>
             </li>
             <!--<li>
               <%= link_to "Today's Stats", today_stats_index_path %>
             </li>-->
-            <li class="<%= 'nav-active' if current_page?(sms_reports_index_path) %>" >
+            <li class="<%= 'nav-active' if current_page?(admin_routers_path) %>" >
               <%= link_to 'Router', admin_routers_path %>
             </li>
             <!--<li>
