@@ -67,10 +67,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
   def choose_layout
+
     if current_user.admin?
       "admin"
-    else
-      "application"
+    else if current_user.reseller?
+           "reseller"
+         else
+          "application"
+         end
     end
   end
 

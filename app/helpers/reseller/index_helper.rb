@@ -1,0 +1,2 @@
+module Reseller::IndexHelper
+end

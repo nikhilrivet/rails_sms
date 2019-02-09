@@ -1,0 +1,42 @@
+<%= form_for(@user, url: reseller_users_path(@user), html: {class: "form-horizontal", role:"form"}) do |f| %>
+  <section class="panel">
+    <header class="panel-heading">
+      <h2 class="panel-title">New User</h2>
+    </header>
+    <div class="panel-body">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">User Name</label>
+          <div class="col-sm-9">
+            <%= f.text_field :username, class: 'form-control', required:'true', placeholder:'' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Email</label>
+          <div class="col-sm-9">
+            <%= f.text_field :email, class: 'form-control', required:'true', placeholder:'' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Sms Count</label>
+          <div class="col-sm-9">
+            <%= f.text_field :sms_count, class: 'form-control', required:'true', placeholder:'' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Role</label>
+          <div class="col-sm-9">
+            <%= f.select(:role, options_for_select([['User', 'user']])) %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label"></label>
+          <div class="col-sm-9">
+            <%= f.submit 'Add', class: 'btn btn-primary' %>
+            <%= link_to 'Back',  reseller_users_path , class: 'btn btn-default' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

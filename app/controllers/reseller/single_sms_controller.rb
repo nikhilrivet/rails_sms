@@ -1,5 +1,4 @@
-class SingleSmsController < BaseController
-
+class Reseller::SingleSmsController < Reseller::BaseController
   def index
     @senders = Sender.where(:user_id => current_user.id)
   end

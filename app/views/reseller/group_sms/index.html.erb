@@ -1,0 +1,142 @@
+<!-- start: page -->
+<div class="row">
+  <div class="col-md-12">
+    <%= form_tag("/group_sms/send_sms", method: "post", id: "frmSendSms", name: "frmSendSms") do %>
+      <section class="panel">
+        <header class="panel-heading">
+          <h2 class="panel-title">Send Group SMS</h2>
+        </header>
+        <div class="panel-body">
+          <!--<div class="form-group">
+            <label class="col-sm-2 control-label">Remove Duplicates</label>
+
+            <div class="col-sm-9">
+              <div class="checkbox-custom checkbox-primary">
+                <input type="checkbox" checked="" id="checkboxExample1">
+                <label for="checkboxExample1"></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Acculync</label>
+
+            <div class="col-sm-9">
+              <div class="checkbox-custom checkbox-primary">
+                <input type="checkbox" checked="" id="checkboxExample1">
+                <label for="checkboxExample1"></label>
+              </div>
+            </div>
+          </div>-->
+          <div class="form-group">
+            <label class="col-md-2 control-label">Groups</label>
+            <div class="col-md-6">
+              <select name="togroup[]" class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "includeSelectAllOption": true }' id="ms_example6">
+                <% @groups.each do |group|%>
+                  <option value="<%= group.id %>"><%= group.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label">Distributions</label>
+            <div class="col-md-6">
+              <select name="todistribution[]" class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "includeSelectAllOption": true }' id="ms_example5">
+                <% @distributions.each do |distribution|%>
+                    <option value="<%= distribution.id %>"><%= distribution.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Sender</label>
+            <div class="col-sm-9">
+              <select id="sender" name="sender" class="form-control" required>
+                <option value="">Select</option>
+                <% @senders.each_with_index do |sender,index| %>
+                    <option value="<%= sender.name %>"><%= sender.name %></option>
+                <% end %>
+              </select>
+              <label class="error" for="company"></label>
+            </div>
+          </div>
+          <!--<div class="form-group">
+            <label class="col-sm-2 control-label">Sender</label>
+            <div class="col-sm-9">
+              <input type="text" name="sender" class="form-control" placeholder="" value="" required/>
+            </div>
+          </div>-->
+          <!--<div class="form-group">
+            <label class="col-sm-2 control-label">Message Type</label>
+            <div class="col-sm-9">
+              <select id="company" class="form-control" required>
+                <option value="">Select</option>
+                <option value="apple">Text</option>
+                <option value="google">Flash</option>
+                <option value="microsoft">Arabic</option>
+                <option value="yahoo">Unicode</option>
+              </select>
+              <label class="error" for="company"></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Select Message</label>
+            <div class="col-sm-9">
+              <select id="company" class="form-control" required>
+                <option value="">Select</option>
+                <option value="apple">Text</option>
+                <option value="google">Flash</option>
+                <option value="microsoft">Arabic</option>
+                <option value="yahoo">Unicode</option>
+              </select>
+              <label class="error" for="company"></label>
+              <label>Save Message | Delete Message</label>
+            </div>
+          </div>-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Message <span class="required">*</span></label>
+            <div class="col-sm-9">
+              <textarea name="txtMessage" rows="5" class="form-control" placeholder="Enter messages" required onkeypress="javascript:setCounter();" onchange="javascript:setCounter();"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Characters</label>
+            <div class="col-sm-9">
+              <input type="text" name="txtcount" class="form-control" value="" disabled="disabled"/>
+              <input type="hidden" value="160" name="hiddcount">
+            </div>
+          </div>
+          <!--<div class="form-group">
+            <label class="col-sm-2 control-label">Schedule</label>
+            <div class="col-sm-9">
+              <select id="company" class="form-control" required>
+                <option value="">Select</option>
+                <option value="apple">Text</option>
+                <option value="google">Flash</option>
+                <option value="microsoft">Arabic</option>
+                <option value="yahoo">Unicode</option>
+              </select>
+              <label class="error" for="company"></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-9">
+              <input type="text" data-plugin-datepicker class="form-control">
+            </div>
+          </div>-->
+        </div>
+        <footer class="panel-footer">
+          <div class="row">
+            <div class="col-sm-9 col-sm-offset-3">
+              <button class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-default">Reset</button>
+            </div>
+          </div>
+        </footer>
+      </section>
+    <% end %>
+
+  </div>
+</div>
+
+<!-- end: page -->

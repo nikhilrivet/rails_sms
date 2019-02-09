@@ -1,0 +1,41 @@
+<!-- start: page -->
+<section class="panel">
+  <header class="panel-heading">
+    <div class="pull-right">
+      <%= link_to 'New Distribution', new_distribution_path %>
+    </div>
+    <h2 class="panel-title">Distribution List</h2>
+
+  </header>
+  <div class="panel-body">
+    <table class="table table-bordered table-striped mb-none" id="datatable-editable">
+      <thead>
+      <tr>
+        <th>Number</th>
+        <th>Distribution Name</th>
+        <th>Count</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @distributions.each_with_index do |disttibution,index| %>
+        <tr class="gradeX">
+          <td><%= index +1 %></td>
+          <td><%= disttibution.name %></td>
+          <td><%= disttibution.dcontacts.count %></td>
+          <td class="actions">
+            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, distribution_path(disttibution), 'class': 'on-default' %>
+            <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_distribution_path(disttibution), 'class': 'on-default' %>
+            <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, distribution_path(disttibution), method: :delete,
+                        data: {confirm: "Are you sure you want to delete the distribution?"},
+                        class: "on-default" %>
+            <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+            <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- end: page -->
