@@ -3,6 +3,47 @@ function setCounter(){
 	document.frmSendSms.txtcount.value = charactercount;
 }
 
+function setMessageLength1()
+{
+    if (document.frmSendSms.cmbMessageType.value == "0")
+    {
+        document.frmSendSms.hiddcount.value = "160";
+        setCounter();
+        document.frmSendSms.txtMessage.dir = "ltr";
+    }
+    if (document.frmSendSms.cmbMessageType.value == "1")
+    {
+        document.frmSendSms.hiddcount.value = "70";
+        setCounter();
+        document.frmSendSms.txtMessage.dir = "ltr";
+    }
+    if (document.frmSendSms.cmbMessageType.value == "2")
+    {
+        document.frmSendSms.hiddcount.value = "160";
+        setCounter();
+        document.frmSendSms.txtMessage.dir = "ltr";
+    }
+    if (document.frmSendSms.cmbMessageType.value == "3")
+    {
+        document.frmSendSms.hiddcount.value = "70";
+        setCounter();
+        document.frmSendSms.txtMessage.dir = "ltr";
+    }
+    if (document.frmSendSms.cmbMessageType.value == "4")
+    {
+        document.frmSendSms.hiddcount.value = "70";
+        setCounter();
+        document.frmSendSms.txtMessage.dir = "rtl";
+    }
+    if (document.frmSendSms.cmbMessageType.value == "5")
+    {
+        document.frmSendSms.hiddcount.value = "70";
+        setCounter();
+        document.frmSendSms.txtMessage.dir = "ltr";
+    }
+}
+
+
 function textCounter(field, maxlimit)
 {
     var messagelen = 1;

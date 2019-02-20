@@ -8,7 +8,20 @@ class SingleSmsController < BaseController
     @phone_number = params[:phone_number]
     @sender = params[:sender]
     @message = params[:txtMessage]
-    @schedule_date = params[:schedule_date]
+    #@schedule_date = params[:schedule_date]
+    @cmbMessageType = params[:cmbMessageType]
+    puts @cmbMessageType
+    if @cmbMessageType == '0'
+      @content = @message
+      @coding = 0
+      puts @content
+    end
+
+    if @cmbMessageType == '1'
+      @content = @message.encode("UTF-16BE")
+      @coding = 8
+    end
+
     require 'net/http'
     content = "ازرع اسنانك بيوم واحد وبدون ألم مع ضمان مدى الحياة0551081988"
 
@@ -17,9 +30,9 @@ class SingleSmsController < BaseController
     user_name = current_user.username
 
     params = { :username => user_name, :password => 'bar',
-               :to => @phone_number, 'content' => @message.encode("UTF-16BE"),:from => @sender ,
-               :coding => 8,
-               :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url, 'sdt' => @schedule_date}
+               :to => @phone_number, 'content' => @content,:from => @sender ,
+               :coding => @coding,
+               :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url}
     uri.query = URI.encode_www_form(params)
 
     @response = Net::HTTP.get_response(uri)

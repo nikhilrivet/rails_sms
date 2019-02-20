@@ -25,20 +25,20 @@
           <h2 class="panel-title">Send Single SMS</h2>
         </header>
         <div class="panel-body">
-          <!--<div class="form-group">-->
-            <!--<label class="col-sm-2 control-label">Separation Type <span class="required">*</span></label>-->
-            <!--<div class="col-sm-9">-->
-              <!--<div class="radio-custom radio-primary radio-inline">-->
-                <!--<input id="awesome" name="porto_is" type="radio" value="awesome" required />-->
-                <!--<label for="awesome">Comma Separated</label>-->
-              <!--</div>-->
-              <!--<div class="radio-custom radio-primary radio-inline">-->
-                <!--<input id="very-awesome" name="porto_is" type="radio" value="very-awesome" />-->
-                <!--<label for="very-awesome">Line Separated</label>-->
-              <!--</div>-->
-              <!--<label class="error" for="porto_is"></label>-->
-            <!--</div>-->
-          <!--</div>-->
+          <!--<div class="form-group">
+            <label class="col-sm-2 control-label">Separation Type <span class="required">*</span></label>
+            <div class="col-sm-9">
+              <div class="radio-custom radio-primary radio-inline">
+                <input id="awesome" name="porto_is" type="radio" value="awesome" required />
+                <label for="awesome">Comma Separated</label>
+              </div>
+              <div class="radio-custom radio-primary radio-inline">
+                <input id="very-awesome" name="porto_is" type="radio" value="very-awesome" />
+                <label for="very-awesome">Line Separated</label>
+              </div>
+              <label class="error" for="porto_is"></label>
+            </div>
+          </div>-->
           <div class="form-group">
             <label class="col-sm-2 control-label">Number <span class="required">*</span></label>
             <div class="col-sm-9">
@@ -86,20 +86,34 @@
               <label class="error" for="company"></label>
             </div>
           </div>-->
-          <!--<div class="form-group">-->
-            <!--<label class="col-sm-2 control-label">Select Message</label>-->
-            <!--<div class="col-sm-9">-->
-              <!--<select id="company" class="form-control" required>-->
-                <!--<option value="">Select</option>-->
-                <!--<option value="apple">Text</option>-->
-                <!--<option value="google">Flash</option>-->
-                <!--<option value="microsoft">Arabic</option>-->
-                <!--<option value="yahoo">Unicode</option>-->
-              <!--</select>-->
-              <!--<label class="error" for="company"></label>-->
-              <!--<label>Save Message | Delete Message</label>-->
-            <!--</div>-->
-          <!--</div>-->
+          <!--<div class="form-group">
+            <label class="col-sm-2 control-label">Select Message</label>
+            <div class="col-sm-9">
+              <select id="company" class="form-control" required>
+                <option value="">Select</option>
+                <option value="apple">Text</option>
+                <option value="google">Flash</option>
+                <option value="microsoft">Arabic</option>
+                <option value="yahoo">Unicode</option>
+              </select>
+              <label class="error" for="company"></label>
+              <label>Save Message | Delete Message</label>
+            </div>
+          </div>-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Message Type <span class="required">*</span></label>
+            <div class="col-sm-9">
+              <div class="radio-custom radio-primary radio-inline" style="margin-bottom: 0px;">
+                <input id="awesome" name="cmbMessageType" type="radio" value="0" required checked onchange="javascript:setMessageLength1();"/>
+                <label for="awesome">Text</label>
+              </div>
+              <div class="radio-custom radio-primary radio-inline">
+                <input id="very-awesome" name="cmbMessageType" type="radio" value="1" onchange="javascript:setMessageLength1();" />
+                <label for="very-awesome">Arabic</label>
+              </div>
+              <label class="error" for="message_type"></label>
+            </div>
+          </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Message <span class="required">*</span></label>
             <div class="col-sm-9">
@@ -113,12 +127,12 @@
               <input type="hidden" value="160" name="hiddcount">
             </div>
           </div>
-          <div class="form-group">
+          <!--<div class="form-group">
             <label class="col-sm-2 control-label">Date <span class="required">*</span></label>
             <div class="col-sm-9">
               <input type="text" name="schedule_date" class="form-control" placeholder="eg.: 1345879125" value="" required/>
             </div>
-          </div>
+          </div>-->
           <!--<div class="form-group">-->
             <!--<label class="col-sm-2 control-label">Schedule</label>-->
             <!--<div class="col-sm-9">-->
