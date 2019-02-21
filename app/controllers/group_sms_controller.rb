@@ -17,12 +17,14 @@ class GroupSmsController < BaseController
     uri = URI('http://66.42.104.90:1401/send')
     dlr_url = 'http://smpplive.com/delivery_receipt/get_dlr'
     user_name = current_user.username
+    jasmin_password = current_user.jasmin_password
+
     if params[:togroup]
       @togroups.each do |item|
         contacts = Contact.where(:group_id => item.to_i)
 
         contacts.each do |contact|
-          params = { :username => user_name, :password => 'bar',
+          params = { :username => user_name, :password => jasmin_password,
                      :to => contact.number, 'content' => message.encode("UTF-16BE"),:from => @sender ,
                      :coding => 8,
                      :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url}

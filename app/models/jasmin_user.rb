@@ -5,12 +5,12 @@ class JasminUser
     @server = @telnet.telnet_open
   end
 
-  def add_user(username, uid, sms_count)
+  def add_user(username, password, sms_count)
     @server.cmd("user -a")
     @server.cmd("username " + username)
-    @server.cmd("password bar")
+    @server.cmd("password " + password)
     @server.cmd("gid foogroup")
-    @server.cmd("uid " + uid)
+    @server.cmd("uid " + username)
     @server.cmd("mt_messaging_cred quota sms_count " + sms_count)
     result = @server.cmd("ok")
     @server.cmd("quit")

@@ -28,8 +28,9 @@ class SingleSmsController < BaseController
     uri = URI(ENV['HTTP_API_HOST'])
     dlr_url = ENV['DLR_URL']
     user_name = current_user.username
+    jasmin_password = current_user.jasmin_password
 
-    params = { :username => user_name, :password => 'bar',
+    params = { :username => user_name, :password => jasmin_password,
                :to => @phone_number, 'content' => @content,:from => @sender ,
                :coding => @coding,
                :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url}

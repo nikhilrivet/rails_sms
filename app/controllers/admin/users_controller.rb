@@ -22,9 +22,9 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    @user = User.new(:username => user_params[:username], :email => user_params[:email], :sms_count => user_params[:sms_count], :role => user_params[:role], :password =>'123456789', :password_confirmation => '123456789')
+    @user = User.new(:username => user_params[:username], :email => user_params[:email], :sms_count => user_params[:sms_count], :role => user_params[:role], :password =>'12345678', :password_confirmation => '12345678', :jasmin_password => '12345678')
     jasmin_user = JasminUser.new()
-    unless jasmin_user.add_user(user_params[:username], user_params[:username], user_params[:sms_count])
+    unless jasmin_user.add_user(user_params[:username], '12345678', user_params[:sms_count])
       render 'new'
     end
 
