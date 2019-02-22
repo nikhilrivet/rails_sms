@@ -95,7 +95,7 @@
               <div class="form-group">
                 <label class="col-md-3 control-label" for="profileNewPassword">New Password</label>
                 <div class="col-md-8">
-                  <%= f.password_field :password, class: 'form-control', autocomplete: "new-password" %>
+                  <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", minlength: 6, maxlength: 8 %>
                   <% if @minimum_password_length %>
                       <br />
                       <em><%= @minimum_password_length %> characters minimum</em>
@@ -105,7 +105,7 @@
               <div class="form-group">
                 <label class="col-md-3 control-label" for="profileNewPasswordRepeat">Repeat New Password</label>
                 <div class="col-md-8">
-                  <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password" %>
+                  <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password", minlength: 6, maxlength: 8 %>
                 </div>
               </div>
             </fieldset>

@@ -43,9 +43,6 @@
             <li class="<%= 'nav-active' if current_page?(distributions_path) %>">
               <%= link_to 'Distribution List', distributions_path %>
             </li>
-            <li class="<%= 'nav-active' if current_page?(senders_path) %>">
-              <%= link_to 'Sender', senders_path %>
-            </li>
           </ul>
         </li>
         <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(sms_reports_index_path)%>">

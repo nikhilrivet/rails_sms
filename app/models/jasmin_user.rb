@@ -20,9 +20,21 @@ class JasminUser
     return return_value
   end
 
-  def update_user(uid, sms_count)
+  def update_user(uid, password, sms_count)
     @server.cmd("user -u" + uid)
+    @server.cmd("password " + password)
     @server.cmd("mt_messaging_cred quota sms_count " + sms_count)
+    result = @server.cmd("ok")
+    @server.cmd("quit")
+    @telnet.telnet_close(@server)
+    status = result.split(/[\r\n]+/)
+    return_value = status[1].include? "Successfully updated User"
+    return return_value
+  end
+
+  def update_user_with_password(uid, password)
+    @server.cmd("user -u" + uid)
+    @server.cmd("password " + password)
     result = @server.cmd("ok")
     @server.cmd("quit")
     @telnet.telnet_close(@server)
