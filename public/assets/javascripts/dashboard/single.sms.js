@@ -1,4 +1,11 @@
 function setCounter(){
+    var arabic = /[\u0600-\u06FF]/;
+
+    if(arabic.test(document.frmSendSms.txtMessage.value) == true){
+        document.frmSendSms.hiddcount.value = 70
+    }else{
+        document.frmSendSms.hiddcount.value = 160
+    }
 	var charactercount = textCounter(document.frmSendSms.txtMessage, document.frmSendSms.hiddcount.value);
 	document.frmSendSms.txtcount.value = charactercount;
 }
