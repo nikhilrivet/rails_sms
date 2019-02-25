@@ -13,6 +13,13 @@ class GroupSmsController < BaseController
     @todistributions = params[:todistribution]
     require 'net/http'
 
+    if (message =~ /\p{Arabic}/).nil?
+      @content = message
+      @coding = 0
+    else
+      @content = message.encode("UTF-16BE")
+      @coding = 8
+    end
 
     uri = URI(ENV['HTTP_API_HOST'])
     dlr_url = ENV['DLR_URL']
@@ -25,8 +32,8 @@ class GroupSmsController < BaseController
 
         contacts.each do |contact|
           params = { :username => user_name, :password => jasmin_password,
-                     :to => contact.number, 'content' => message.encode("UTF-16BE"),:from => @sender ,
-                     :coding => 8,
+                     :to => contact.number, 'content' => @content,:from => @sender ,
+                     :coding => @coding,
                      :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url}
           uri.query = URI.encode_www_form(params)
 
@@ -57,8 +64,8 @@ class GroupSmsController < BaseController
           unless @contact_numbers.include? dcontact.number
             @contact_numbers.push(dcontact.number)
             params = { :username => user_name, :password => jasmin_password,
-                       :to => dcontact.number, 'content' => message.encode("UTF-16BE"),:from => @sender ,
-                       :coding => 8,
+                       :to => dcontact.number, 'content' => @content,:from => @sender ,
+                       :coding => @coding,
                        :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url}
             uri.query = URI.encode_www_form(params)
 

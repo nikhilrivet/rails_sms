@@ -11,17 +11,6 @@ class SingleSmsController < BaseController
     #@schedule_date = params[:schedule_date]
     @cmbMessageType = params[:cmbMessageType]
 
-=begin
-    if @cmbMessageType == '0'
-      @content = @message
-      @coding = 0
-    end
-
-    if @cmbMessageType == '1'
-      @content = @message.encode("UTF-16BE")
-      @coding = 8
-    end
-=end
     if (@message =~ /\p{Arabic}/).nil?
       @content = @message
       @coding = 0
