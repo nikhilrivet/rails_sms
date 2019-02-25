@@ -14,8 +14,8 @@ class GroupSmsController < BaseController
     require 'net/http'
 
 
-    uri = URI('http://66.42.104.90:1401/send')
-    dlr_url = 'http://smpplive.com/delivery_receipt/get_dlr'
+    uri = URI(ENV['HTTP_API_HOST'])
+    dlr_url = ENV['DLR_URL']
     user_name = current_user.username
     jasmin_password = current_user.jasmin_password
 
@@ -56,7 +56,7 @@ class GroupSmsController < BaseController
         dcontacts.each do |dcontact|
           unless @contact_numbers.include? dcontact.number
             @contact_numbers.push(dcontact.number)
-            params = { :username => user_name, :password => 'bar',
+            params = { :username => user_name, :password => jasmin_password,
                        :to => dcontact.number, 'content' => message.encode("UTF-16BE"),:from => @sender ,
                        :coding => 8,
                        :dlr => 'yes', 'dlr-level' => 2, 'dlr-url' => dlr_url}
