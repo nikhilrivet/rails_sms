@@ -24,7 +24,7 @@
           <td><%= batchs.phone %></td>
           <td><%= batchs.message %></td>
           <td><%= batchs.message_status %></td>
-          <td><%= batchs.schedule_time %></td>
+          <td><%= batchs.schedule_time.strftime '%Y-%m-%d %H:%M:%S' %></td>
         </tr>
       <% end %>
       </tbody>
