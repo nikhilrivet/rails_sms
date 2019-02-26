@@ -21,7 +21,7 @@ class BatchController < ApplicationController
       @message_str = "Fail: Message cannot send successfully."
     end
     @message_id = @status_text.from(9).to(-2)
-    @message = Message.create(phone: @phone_number, sender: schedule.sender, message: schedule.message, message_id: @message_id, message_status: 'PENDING', user_id: current_user.id, message_send_status: message_send_status)
+    @message = Message.create(phone: @phone_number, sender: schedule.sender, message: schedule.message, message_id: @message_id, message_status: 'PENDING', user_id: schedule.user_id, message_send_status: message_send_status)
 
     data = "ACK/Jasmin"
     render :json => data
