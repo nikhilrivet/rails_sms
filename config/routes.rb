@@ -31,12 +31,17 @@ Rails.application.routes.draw do
   get 'user_profile/index'
   get 'coverage_details/index'
   get 'telnet_connector/index'
+  get 'schedule_reports/index'
+
 
   post 'single_sms/send_sms'
   post 'group_sms/send_sms'
   post 'user_profile/update'
 
   post 'delivery_receipt/get_dlr'
+  get 'smpp/sendsms'
+  post 'smpp/sendsms'
+  get 'batch/call_back'
 
   namespace :admin do
     get 'index/index'

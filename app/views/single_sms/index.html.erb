@@ -40,7 +40,7 @@
             </div>
           </div>-->
           <div class="form-group">
-            <label class="col-sm-2 control-label">Number <span class="required">*</span></label>
+            <label class="col-sm-3 control-label">Number <span class="required">*</span></label>
             <div class="col-sm-9">
               <input type="text" name="phone_number" class="form-control" placeholder="eg.: 1345879125" value="" required/>
             </div>
@@ -56,7 +56,7 @@
             <!--</div>-->
           <!--</div>-->
           <div class="form-group">
-            <label class="col-sm-2 control-label">Sender</label>
+            <label class="col-sm-3 control-label">Sender</label>
             <div class="col-sm-9">
               <select id="sender" name="sender" class="form-control" required>
                 <option value="">Select</option>
@@ -115,13 +115,13 @@
             </div>
           </div>-->
           <div class="form-group">
-            <label class="col-sm-2 control-label">Message <span class="required">*</span></label>
+            <label class="col-sm-3 control-label">Message <span class="required">*</span></label>
             <div class="col-sm-9">
               <textarea name="txtMessage" rows="5" class="form-control" placeholder="Enter messages" required onkeypress="javascript:setCounter();" onchange="javascript:setCounter();"></textarea>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Characters</label>
+            <label class="col-sm-3 control-label">Characters</label>
             <div class="col-sm-9">
               <input type="text" name="txtcount" class="form-control" value="" disabled="disabled" />
               <input type="hidden" value="160" name="hiddcount">
@@ -133,30 +133,35 @@
               <input type="text" name="schedule_date" class="form-control" placeholder="eg.: 1345879125" value="" required/>
             </div>
           </div>-->
-          <!--<div class="form-group">-->
-            <!--<label class="col-sm-2 control-label">Schedule</label>-->
-            <!--<div class="col-sm-9">-->
-              <!--<select id="company" class="form-control" required>-->
-                <!--<option value="">Select</option>-->
-                <!--<option value="apple">Text</option>-->
-                <!--<option value="google">Flash</option>-->
-                <!--<option value="microsoft">Arabic</option>-->
-                <!--<option value="yahoo">Unicode</option>-->
-              <!--</select>-->
-              <!--<label class="error" for="company"></label>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<label class="col-sm-2 control-label"></label>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" data-plugin-datepicker class="form-control">-->
-            <!--</div>-->
-          <!--</div>-->
+          <!--<div class="form-group">
+            <label class="col-sm-3 control-label">Schedule</label>
+
+            <div class="col-sm-9">
+              <div class="checkbox-custom checkbox-primary">
+                <input type="checkbox"  id="schedule_check" name="schedule_check">
+                <label for="checkboxExample1"></label>
+              </div>
+            </div>
+          </div>-->
+          <div class="form-group">
+            <label for="dtp_input1" class="col-sm-3 control-label">Schedule Datetime</label>
+            <div class="col-sm-9">
+              <div class="input-group date form_datetime" data-date="" data-date-format="" data-link-field="dtp_input1">
+                <input class="form-control" size="16" type="text" value="" readonly>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+              </div>
+              <input type="hidden" id="dtp_input1" value="" name="schedule_date"/><br/>
+              <input type="hidden" id="current_date" value="" name="current_date"/><br/>
+            </div>
+          </div>
         </div>
+
+
+
         <footer class="panel-footer">
           <div class="row">
             <div class="col-sm-9 col-sm-offset-3">
-              <button class="btn btn-primary">Submit</button>
+              <button class="btn btn-primary" onclick="javascript:submit_single();">Submit</button>
               <button type="reset" class="btn btn-default">Reset</button>
             </div>
           </div>

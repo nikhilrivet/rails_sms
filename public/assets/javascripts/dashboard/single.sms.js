@@ -220,3 +220,18 @@ var BrowserDetect = {
 };
 
 BrowserDetect.init();
+
+$('.form_datetime').datetimepicker({
+    format: "yyyy-mm-dd hh:ii:ss",
+    autoclose: true,
+    todayBtn: true,
+    pickerPosition: "bottom-left",
+    startDate: new Date()
+});
+
+function submit_single(){
+    var rightNow = (new Date(Date.now()-(new Date()).getTimezoneOffset() * 60000));
+    var date = rightNow.toISOString().slice(0, 10).replace(/[^0-9]/g, "-");
+    var time = rightNow.toISOString().slice(11, 19).replace(/[^0-9]/g, ":");
+    $("#current_date").val(date + ' ' + time);
+}

@@ -1,0 +1,34 @@
+<section class="panel">
+  <header class="panel-heading">
+    <h2 class="panel-title">Schedule Reports</h2>
+  </header>
+  <div class="panel-body">
+    <table class="table table-bordered table-striped mb-none" id="datatable-editable-reports">
+      <thead>
+      <tr>
+        <th>No</th>
+        <th>Schedule_id</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Content</th>
+        <th>Status</th>
+        <th>Schedule Time</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @batchs.each_with_index do |batchs,index| %>
+        <tr class="gradeA">
+          <td><%= index+1 %></td>
+          <td><%= batchs.batch_id %></td>
+          <td><%= batchs.sender %></td>
+          <td><%= batchs.phone %></td>
+          <td><%= batchs.message %></td>
+          <td><%= batchs.message_status %></td>
+          <td><%= batchs.schedule_time %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- end: page -->
