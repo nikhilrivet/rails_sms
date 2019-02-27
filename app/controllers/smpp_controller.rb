@@ -6,8 +6,8 @@ class SmppController < ApplicationController
     @password = params[:password]
     @sender = params[:from]
 
-    @user = User.where(:username => @username, :jasmin_password => @password)
-    if @user.empty?
+    @user = User.where(:username => @username, :jasmin_password => @password).first
+    if @user.nil?
       return_msg = 'Error: 1029 - "Authentication failure for userinfo"'
       render :json => return_msg
       return
