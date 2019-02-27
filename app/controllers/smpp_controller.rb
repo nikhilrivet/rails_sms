@@ -8,7 +8,7 @@ class SmppController < ApplicationController
 
     @user = User.where(:username => @username, :jasmin_password => @password)
     if @user.empty?
-      return_msg = 'Error "Authentication failure for userinfo"'
+      return_msg = 'Error: 1029 - "Authentication failure for userinfo"'
       render :json => return_msg
       return
     end
@@ -44,7 +44,7 @@ class SmppController < ApplicationController
       message_send_status = 0
     end
     @message_id = @response.body.from(9).to(-2)
-    @message = Message.create(phone: @phone_number, sender: @sender, message: @message, message_id: @message_id, message_status: 'PENDING', user_id: 1, message_send_status: message_send_status)
+    @message = Message.create(phone: @phone_number, sender: @sender, message: @message, message_id: @message_id, message_status: 'PENDING', user_id: @user.id, message_send_status: message_send_status)
 
     render :json => @response.body
   end
