@@ -28,7 +28,7 @@
             </div>
           </div>-->
           <div class="form-group">
-            <label class="col-md-2 control-label">Groups</label>
+            <label class="col-md-3 control-label">Groups</label>
             <div class="col-md-6">
               <select name="togroup[]" class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "includeSelectAllOption": true }' id="ms_example6">
                 <% @groups.each do |group|%>
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-2 control-label">Distributions</label>
+            <label class="col-md-3 control-label">Distributions</label>
             <div class="col-md-6">
               <select name="todistribution[]" class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "includeSelectAllOption": true }' id="ms_example5">
                 <% @distributions.each do |distribution|%>
@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Sender</label>
+            <label class="col-sm-3 control-label">Sender</label>
             <div class="col-sm-9">
               <select id="sender" name="sender" class="form-control" required>
                 <option value="">Select</option>
@@ -93,16 +93,27 @@
             </div>
           </div>-->
           <div class="form-group">
-            <label class="col-sm-2 control-label">Message <span class="required">*</span></label>
+            <label class="col-sm-3 control-label">Message <span class="required">*</span></label>
             <div class="col-sm-9">
               <textarea name="txtMessage" rows="5" class="form-control" placeholder="Enter messages" required onkeypress="javascript:setCounter();" onchange="javascript:setCounter();"></textarea>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Characters</label>
+            <label class="col-sm-3 control-label">Characters</label>
             <div class="col-sm-9">
               <input type="text" name="txtcount" class="form-control" value="" disabled="disabled"/>
               <input type="hidden" value="160" name="hiddcount">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dtp_input1" class="col-sm-3 control-label">Schedule Datetime</label>
+            <div class="col-sm-9">
+              <div class="input-group date form_datetime" data-date="" data-date-format="" data-link-field="dtp_input1">
+                <input class="form-control" size="16" type="text" value="" readonly>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+              </div>
+              <input type="hidden" id="dtp_input1" value="" name="schedule_date"/><br/>
+              <input type="hidden" id="current_date" value="" name="current_date"/><br/>
             </div>
           </div>
           <!--<div class="form-group">
@@ -128,7 +139,7 @@
         <footer class="panel-footer">
           <div class="row">
             <div class="col-sm-9 col-sm-offset-3">
-              <button class="btn btn-primary">Submit</button>
+              <button class="btn btn-primary" onclick="javascript:submit_single();">Submit</button>
               <button type="reset" class="btn btn-default">Reset</button>
             </div>
           </div>

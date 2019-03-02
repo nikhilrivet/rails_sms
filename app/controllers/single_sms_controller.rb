@@ -6,7 +6,6 @@ class SingleSmsController < BaseController
 
   def send_sms
     require 'net/http'
-    require 'net/http'
     require 'json'
     require 'base64'
     require 'time'

@@ -36,6 +36,19 @@ end
 
 def update
   @router = Router.find(params[:id])
+
+  jasmin_router_add = JasminRouter.new()
+  unless jasmin_router_add.add_router(router_params[:router_order], router_params[:router_type], router_params[:rate], router_params[:connector], router_params[:filter])
+    redirect_to admin_routers_path, :alert => "Unable to update router."
+    return
+  end
+
+  jasmin_router_del = JasminRouter.new()
+
+  unless jasmin_router_del.delete_router(@router[:router_order])
+    redirect_to admin_routers_path, :alert => "Unable to update router."
+    return
+  end
   if @router.update_attributes(router_params)
     redirect_to admin_routers_path, :notice => "Router updated."
   else
