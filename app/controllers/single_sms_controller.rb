@@ -61,27 +61,52 @@ class SingleSmsController < BaseController
       request["Content-Type"] = 'application/json'
       request["Authorization"] = 'Basic ' + Base64.strict_encode64(user_name + ':' + jasmin_password)
       request["cache-control"] = 'no-cache'
-      request.body = {
-          "batch_config": {
-              "callback_url": call_back_url,
-              "schedule_at": @seconds_diff
-          },
-          "globals": {
-              "from": @sender,
-              "dlr": "yes",
-              "dlr-url": dlr_url,
-              "dlr-level": 2,
-              "coding": @coding
-          },
-          "messages": [
-              {
-                  "to": [
-                      @phone_number
-                  ],
-                  "content": @content
-              }
-          ]
-      }.to_json
+
+      if @coding == 0
+        request.body = {
+            "batch_config": {
+                "callback_url": call_back_url,
+                "schedule_at": @seconds_diff
+            },
+            "globals": {
+                "from": @sender,
+                "dlr": "yes",
+                "dlr-url": dlr_url,
+                "dlr-level": 2,
+                "coding": @coding
+            },
+            "messages": [
+                {
+                    "to": [
+                        @phone_number
+                    ],
+                    "content": @content
+                }
+            ]
+        }.to_json
+      else
+        request.body = {
+            "batch_config": {
+                "callback_url": call_back_url,
+                "schedule_at": @seconds_diff
+            },
+            "globals": {
+                "from": @sender,
+                "dlr": "yes",
+                "dlr-url": dlr_url,
+                "dlr-level": 2,
+                "coding": @coding
+            },
+            "messages": [
+                {
+                    "to": [
+                        @phone_number
+                    ],
+                    "hex_content": @content.codepoints.map { |c| "%04X" % c }.join
+                }
+            ]
+        }.to_json
+      end
 
       response = http.request(request)
       batch_data = JSON.parse(response.read_body)['data']

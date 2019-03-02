@@ -109,27 +109,51 @@ class GroupSmsController < BaseController
           contacts = Contact.where(:group_id => item.to_i)
 
           contacts.each do |contact|
-            request.body = {
-                "batch_config": {
-                    "callback_url": call_back_url,
-                    "schedule_at": @seconds_diff
-                },
-                "globals": {
-                    "from": @sender,
-                    "dlr": "yes",
-                    "dlr-url": dlr_url,
-                    "dlr-level": 2,
-                    "coding": @coding
-                },
-                "messages": [
-                    {
-                        "to": [
-                            contact.number
-                        ],
-                        "content": @content
-                    }
-                ]
-            }.to_json
+            if @coding == 0
+              request.body = {
+                  "batch_config": {
+                      "callback_url": call_back_url,
+                      "schedule_at": @seconds_diff
+                  },
+                  "globals": {
+                      "from": @sender,
+                      "dlr": "yes",
+                      "dlr-url": dlr_url,
+                      "dlr-level": 2,
+                      "coding": @coding
+                  },
+                  "messages": [
+                      {
+                          "to": [
+                              contact.number
+                          ],
+                          "content": @content
+                      }
+                  ]
+              }.to_json
+            else
+              request.body = {
+                  "batch_config": {
+                      "callback_url": call_back_url,
+                      "schedule_at": @seconds_diff
+                  },
+                  "globals": {
+                      "from": @sender,
+                      "dlr": "yes",
+                      "dlr-url": dlr_url,
+                      "dlr-level": 2,
+                      "coding": @coding
+                  },
+                  "messages": [
+                      {
+                          "to": [
+                              contact.number
+                          ],
+                          "hex_content": @content.codepoints.map { |c| "%04X" % c }.join
+                      }
+                  ]
+              }.to_json
+            end
 
             response = http.request(request)
             batch_data = JSON.parse(response.read_body)['data']
@@ -155,27 +179,52 @@ class GroupSmsController < BaseController
           dcontacts.each do |dcontact|
             unless @contact_numbers.include? dcontact.number
               @contact_numbers.push(dcontact.number)
-              request.body = {
-                  "batch_config": {
-                      "callback_url": call_back_url,
-                      "schedule_at": @seconds_diff
-                  },
-                  "globals": {
-                      "from": @sender,
-                      "dlr": "yes",
-                      "dlr-url": dlr_url,
-                      "dlr-level": 2,
-                      "coding": @coding
-                  },
-                  "messages": [
-                      {
-                          "to": [
-                              dcontact.number
-                          ],
-                          "content": @content
-                      }
-                  ]
-              }.to_json
+              if @coding == 0
+                request.body = {
+                    "batch_config": {
+                        "callback_url": call_back_url,
+                        "schedule_at": @seconds_diff
+                    },
+                    "globals": {
+                        "from": @sender,
+                        "dlr": "yes",
+                        "dlr-url": dlr_url,
+                        "dlr-level": 2,
+                        "coding": @coding
+                    },
+                    "messages": [
+                        {
+                            "to": [
+                                dcontact.number
+                            ],
+                            "content": @content
+                        }
+                    ]
+                }.to_json
+              else
+                request.body = {
+                    "batch_config": {
+                        "callback_url": call_back_url,
+                        "schedule_at": @seconds_diff
+                    },
+                    "globals": {
+                        "from": @sender,
+                        "dlr": "yes",
+                        "dlr-url": dlr_url,
+                        "dlr-level": 2,
+                        "coding": @coding
+                    },
+                    "messages": [
+                        {
+                            "to": [
+                                dcontact.number
+                            ],
+                            "hex_content": @content.codepoints.map { |c| "%04X" % c }.join
+                        }
+                    ]
+                }.to_json
+              end
+
 
               response = http.request(request)
               batch_data = JSON.parse(response.read_body)['data']
