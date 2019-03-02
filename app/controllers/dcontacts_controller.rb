@@ -50,7 +50,7 @@ class DcontactsController < BaseController
 
       myfile = params[:file]
 
-      if myfile.content_type != "text/plain" && myfile.content_type != "text/csv"
+      if myfile.content_type != "text/plain" && myfile.content_type != "text/csv" && myfile.content_type != "application/vnd.ms-excel"
         flash[:danger] = myfile.content_type
         redirect_back(fallback_location: authenticated_root_path)
         return
