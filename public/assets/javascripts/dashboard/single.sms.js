@@ -235,3 +235,39 @@ function submit_single(){
     var time = rightNow.toISOString().slice(11, 19).replace(/[^0-9]/g, ":");
     $("#current_date").val(date + ' ' + time);
 }
+
+function saveDraft(){
+    var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+    $.ajax({
+            url: "/single_sms/save_draft",
+            type: "POST",
+            data: {draft_content: $("#txtMessage").val(),
+                    authenticity_token: AUTH_TOKEN
+                },
+            success: function(resp){
+                $("#draft").append("<option value='" + resp.draft_id +"'>" + $("#txtMessage").val() + "</option>");
+                $("#txtMessage").val("");
+                alert("Message Saved.")
+            }
+    });
+}
+
+function setMessage(){
+    $("#txtMessage").val($("#draft option:selected").html());
+}
+
+function deleteDraft(){
+    var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+    $.ajax({
+        url: "/single_sms/delete_draft",
+        type: "POST",
+        data: {draft_id: $("#draft").val(),
+            authenticity_token: AUTH_TOKEN
+        },
+        success: function(resp){
+            $("#draft option:selected").remove();
+            $("#txtMessage").val("");
+            alert("Message Deleted.");
+        }
+    });
+}

@@ -3,6 +3,7 @@ class GroupSmsController < BaseController
     @groups = Group.where(:user_id => current_user.id)
     @distributions = Distribution.where(:user_id => current_user.id)
     @senders = Sender.where(:user_id => current_user.id)
+    @drafts = Draft.where(:user_id => current_user.id)
   end
 
   def send_sms

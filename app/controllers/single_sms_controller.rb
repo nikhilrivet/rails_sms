@@ -2,6 +2,7 @@ class SingleSmsController < BaseController
 
   def index
     @senders = Sender.where(:user_id => current_user.id)
+    @drafts = Draft.where(:user_id => current_user.id)
   end
 
   def send_sms
@@ -121,5 +122,23 @@ class SingleSmsController < BaseController
     end
 
     redirect_to single_sms_index_path, locals: {response: @response}
+  end
+
+  def save_draft
+    @draft = Draft.new(draft_content: params[:draft_content], user_id: current_user.id)
+    if @draft.save
+      render :json => { draft_id:@draft.id} # send back any data if necessary
+    else
+      render :json => { }, :status => 500
+    end
+  end
+
+  def delete_draft
+    @draft = Draft.find(params[:draft_id])
+    if @draft.destroy
+      render :json => { } # send back any data if necessary
+    else
+      render :json => { }, :status => 500
+    end
   end
 end

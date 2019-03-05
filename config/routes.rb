@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
 
   post 'single_sms/send_sms'
+  post 'single_sms/save_draft'
+  post 'single_sms/delete_draft'
   post 'group_sms/send_sms'
   post 'user_profile/update'
 
