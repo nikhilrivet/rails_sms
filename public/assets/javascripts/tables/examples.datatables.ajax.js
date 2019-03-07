@@ -6,11 +6,14 @@
 	var datatableInit = function() {
 
 		var $table = $('#datatable-ajax');
-		$table.dataTable({
+		var t = $table.DataTable({
 			bProcessing: true,
-			sAjaxSource: $table.data('url')
+            serverSide: true,
+			sAjaxSource: $table.data('url'),
+			iDisplayLength: 10,
+            "pagingType": "full_numbers",
+            "order": [[ 0, 'desc' ]],
 		});
-
 	};
 
 	$(function() {

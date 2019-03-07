@@ -3,10 +3,10 @@
     <div class="pull-right">
       <a href="/sms_reports/reports.csv">Export</a>
     </div>
-    <h2 class="panel-title">SMS Reports</h2>
+    <h2 class="panel-title">Today Reports</h2>
   </header>
   <div class="panel-body">
-    <table class="table table-bordered table-striped mb-none" id="datatable-editable-reports">
+    <table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= sms_reports_index_path %>">
       <thead>
       <tr>
         <th>No</th>
@@ -19,17 +19,6 @@
       </tr>
       </thead>
       <tbody>
-      <% @messages.each_with_index do |message,index| %>
-        <tr class="gradeA">
-          <td><%= index+1 %></td>
-          <td><%= message.message_id %></td>
-          <td><%= message.sender %></td>
-          <td><%= message.phone %></td>
-          <td><%= message.message %></td>
-          <td><%= message.message_status %></td>
-          <td><%= message.created_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
-        </tr>
-      <% end %>
       </tbody>
     </table>
   </div>
