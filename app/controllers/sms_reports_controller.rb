@@ -36,9 +36,9 @@ class SmsReportsController < BaseController
     end
 
     keyword = keyword.gsub(/\s+/, " ").strip
-    list_user = Message.where("(message_id LIKE '%#{keyword}%' OR sender LIKE '%#{keyword}%' OR phone LIKE '%#{keyword}%' OR message LIKE '%#{keyword}%') AND DATE(created_at) = '#{Date.today}'").order(order_key.to_s + " " + order_arrow.to_s).offset(start).limit(length)
-    list_user = Message.where("DATE(created_at) = '#{Date.today}'") if keyword.nil?
-    totalrecords = Message.where("(message_id LIKE '%#{keyword}%' OR sender LIKE '%#{keyword}%' OR phone LIKE '%#{keyword}%' OR message LIKE '%#{keyword}%') AND DATE(created_at) = '#{Date.today}'").count
+    list_user = Message.where("(message_id LIKE '%#{keyword}%' OR sender LIKE '%#{keyword}%' OR phone LIKE '%#{keyword}%' OR message LIKE '%#{keyword}%') AND user_id = '#{current_user.id}' AND DATE(created_at) = '#{Date.today}'").order(order_key.to_s + " " + order_arrow.to_s).offset(start).limit(length)
+    list_user = Message.where("user_id = '#{current_user.id}' AND DATE(created_at) = '#{Date.today}'") if keyword.nil?
+    totalrecords = Message.where("(message_id LIKE '%#{keyword}%' OR sender LIKE '%#{keyword}%' OR phone LIKE '%#{keyword}%' OR message LIKE '%#{keyword}%') AND user_id = '#{current_user.id}' AND DATE(created_at) = '#{Date.today}'").count
     data = {}
     data[:sEcho] = 0
     data[:iTotalRecords] = totalrecords

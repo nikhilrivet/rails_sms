@@ -33,9 +33,9 @@ class SmsSummaryController < BaseController
     end
 
     keyword = keyword.gsub(/\s+/, " ").strip
-    list_user = Message.where("message_id LIKE '%#{keyword}%' OR sender LIKE '%#{keyword}%' OR phone LIKE '%#{keyword}%' OR message LIKE '%#{keyword}%'").order(order_key.to_s + " " + order_arrow.to_s).offset(start).limit(length)
-    list_user = Message.all if keyword.nil?
-    totalrecords = Message.where("message_id LIKE '%#{keyword}%' OR sender LIKE '%#{keyword}%' OR phone LIKE '%#{keyword}%' OR message LIKE '%#{keyword}%'").count
+    list_user = Message.where("(message_id LIKE '%#{keyword}%' OR sender LIKE '%#{keyword}%' OR phone LIKE '%#{keyword}%' OR message LIKE '%#{keyword}%') AND user_id = '#{current_user.id}' ").order(order_key.to_s + " " + order_arrow.to_s).offset(start).limit(length)
+    list_user = Message.where("user_id = '#{current_user.id}'") if keyword.nil?
+    totalrecords = Message.where("(message_id LIKE '%#{keyword}%' OR sender LIKE '%#{keyword}%' OR phone LIKE '%#{keyword}%' OR message LIKE '%#{keyword}%') AND user_id = '#{current_user.id}' ").count
     data = {}
     data[:sEcho] = 0
     data[:iTotalRecords] = totalrecords
