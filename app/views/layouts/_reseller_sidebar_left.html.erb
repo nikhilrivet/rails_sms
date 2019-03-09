@@ -14,66 +14,6 @@
         <li class="<%= 'nav-active' if current_page?(authenticated_root_path) %>">
           <%= link_to "<i class='fa fa-home' aria-hidden='true'></i><span>Dashboard</span>".html_safe, authenticated_root_path %>
         </li>
-        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(single_sms_index_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
-          <a>
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-            <span>Send SMS</span>
-          </a>
-          <ul class="nav nav-children">
-            <li class="<%= 'nav-active' if current_page?(single_sms_index_path) %>">
-              <%= link_to 'Single SMS', reseller_single_sms_index_path %>
-            </li>
-            <!--<li>
-              <%= link_to 'Bulk SMS', bulk_sms_index_path %>
-            </li>-->
-            <li class="<%= 'nav-active' if current_page?(group_sms_index_path) %>">
-              <%= link_to 'Group SMS', reseller_group_sms_index_path %>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(groups_path) || current_page?(distributions_path) || current_page?(senders_path) %>">
-          <a>
-            <i class="fa fa-book" aria-hidden="true"></i>
-            <span>Address Book</span>
-          </a>
-          <ul class="nav nav-children">
-            <li class="<%= 'nav-active' if current_page?(groups_path) %>">
-              <%= link_to 'Group', reseller_groups_path %>
-            </li>
-            <li class="<%= 'nav-active' if current_page?(distributions_path) %>">
-              <%= link_to 'Distribution List', reseller_distributions_path %>
-            </li>
-            <li class="<%= 'nav-active' if current_page?(senders_path) %>">
-              <%= link_to 'Sender', reseller_senders_path %>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(sms_reports_index_path)%>">
-          <a>
-            <i class="fa fa-list-alt" aria-hidden="true"></i>
-            <span>Reports</span>
-          </a>
-          <ul class="nav nav-children">
-            <li>
-              <%= link_to 'Credit Details', credit_details_index_path %>
-            </li>
-            <!--<li>
-              <%= link_to "Today's Stats", today_stats_index_path %>
-            </li>-->
-            <li class="<%= 'nav-active' if current_page?(sms_reports_index_path) %>" >
-              <%= link_to 'SMS Reports', reseller_sms_reports_index_path %>
-            </li>
-            <li>
-              <%= link_to 'SMS Summary', sms_summary_index_path %>
-            </li>
-            <!--<li>
-              <%= link_to 'Acculync', acculync_index_path %>
-            </li>-->
-          </ul>
-        </li>
-        <li class="">
-          <%= link_to '<i class="fa fa-user" aria-hidden="true"></i><span>User Profile</span>'.html_safe, edit_user_registration_path %>
-        </li>
         <li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(admin_users_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
           <a>
             <i class="fa fa-users" aria-hidden="true"></i>
@@ -91,6 +31,67 @@
             </li>-->
           </ul>
         </li>
+        <!--<li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(single_sms_index_path) || current_page?(bulk_sms_index_path) || current_page?(group_sms_index_path) %>">
+          <a>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <span>Send SMS</span>
+          </a>
+          <ul class="nav nav-children">
+            <li class="<%= 'nav-active' if current_page?(single_sms_index_path) %>">
+              <%= link_to 'Single SMS', reseller_single_sms_index_path %>
+            </li>
+            &lt;!&ndash;<li>
+              <%= link_to 'Bulk SMS', bulk_sms_index_path %>
+            </li>&ndash;&gt;
+            <li class="<%= 'nav-active' if current_page?(group_sms_index_path) %>">
+              <%= link_to 'Group SMS', reseller_group_sms_index_path %>
+            </li>
+          </ul>
+        </li>-->
+        <!--<li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(groups_path) || current_page?(distributions_path) || current_page?(senders_path) %>">
+          <a>
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <span>Address Book</span>
+          </a>
+          <ul class="nav nav-children">
+            <li class="<%= 'nav-active' if current_page?(groups_path) %>">
+              <%= link_to 'Group', reseller_groups_path %>
+            </li>
+            <li class="<%= 'nav-active' if current_page?(distributions_path) %>">
+              <%= link_to 'Distribution List', reseller_distributions_path %>
+            </li>
+            <li class="<%= 'nav-active' if current_page?(senders_path) %>">
+              <%= link_to 'Sender', reseller_senders_path %>
+            </li>
+          </ul>
+        </li>-->
+        <!--<li class="nav-parent <%= 'nav-active nav-expanded' if current_page?(sms_reports_index_path)%>">
+          <a>
+            <i class="fa fa-list-alt" aria-hidden="true"></i>
+            <span>Reports</span>
+          </a>
+          <ul class="nav nav-children">
+            <li>
+              <%= link_to 'Credit Details', credit_details_index_path %>
+            </li>
+            &lt;!&ndash;<li>
+              <%= link_to "Today's Stats", today_stats_index_path %>
+            </li>&ndash;&gt;
+            <li class="<%= 'nav-active' if current_page?(sms_reports_index_path) %>" >
+              <%= link_to 'SMS Reports', reseller_sms_reports_index_path %>
+            </li>
+            <li>
+              <%= link_to 'SMS Summary', sms_summary_index_path %>
+            </li>
+            &lt;!&ndash;<li>
+              <%= link_to 'Acculync', acculync_index_path %>
+            </li>&ndash;&gt;
+          </ul>
+        </li>-->
+        <li class="">
+          <%= link_to '<i class="fa fa-user" aria-hidden="true"></i><span>User Profile</span>'.html_safe, edit_user_registration_path %>
+        </li>
+
         <!--<li class="">
           <%= link_to '<i class="fa fa-dashboard" aria-hidden="true"></i><span>Coverage Details</span>'.html_safe, coverage_details_index_path %>
         </li>-->

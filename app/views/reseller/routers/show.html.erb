@@ -1,0 +1,75 @@
+<!-- start: page -->
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(@router, url: reseller_routers_path(@router), html: {class: "form-horizontal", role:"form"}) do |f| %>
+      <section class="panel">
+        <header class="panel-heading">
+          <div class="pull-right">
+            <%= link_to 'Back', reseller_users_path %>
+          </div>
+          <h2 class="panel-title"><%= @user.username %></h2>
+        </header>
+        <div class="panel-body">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Connector</label>
+              <div class="col-sm-8">
+                <%= f.select(:connector, @connectors.collect {|connector| [connector.cid,connector.cid]}, {}, { :class => 'form-control' } ) %>
+                <%= f.hidden_field :user_id, value: @user.id%>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label"></label>
+              <div class="col-md-8">
+                <%= f.submit 'Add', class: 'btn btn-primary' %>
+                <button type="reset" class="btn btn-default">Reset</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Rate</label>
+              <div class="col-sm-8">
+                <%= f.text_field :rate, class: 'form-control', required:'true', placeholder:'' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <% end %>
+  </div>
+</div>
+<section class="panel">
+  <header class="panel-heading">
+    <h2 class="panel-title">Router List</h2>
+  </header>
+  <div class="panel-body">
+    <table class="table table-bordered table-striped mb-none" id="datatable-editable">
+      <thead>
+      <tr>
+        <th>Number</th>
+        <th>Connector</th>
+        <th>Rate</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @routers.each_with_index do |router,index| %>
+        <tr class="gradeX">
+          <td><%= index +1 %></td>
+          <td><%= router.connector %></td>
+          <td><%= router.rate %></td>
+          <td class="actions">
+            <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, reseller_router_path(router), method: :delete,
+                        data: {confirm: "Are you sure you want to delete the contact?"},
+                        class: "on-default" %>
+            <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+            <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- end: page -->

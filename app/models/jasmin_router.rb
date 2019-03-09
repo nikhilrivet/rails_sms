@@ -25,7 +25,7 @@ class JasminRouter
         @server.cmd("order " + order)
     end
 
-    @server.cmd("rate " + rate)
+    @server.cmd("rate " + rate.to_s)
     result = @server.cmd("ok")
     @server.cmd("quit")
     @telnet.telnet_close(@server)

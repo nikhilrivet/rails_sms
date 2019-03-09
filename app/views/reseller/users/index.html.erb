@@ -14,7 +14,9 @@
         <th>Number</th>
         <th>User Name</th>
         <th>Email</th>
+        <th>Password</th>
         <th>Sms Count</th>
+        <th>Senders</th>
         <th>Role</th>
         <th>Action</th>
       </tr>
@@ -25,9 +27,17 @@
             <td><%= index +1 %></td>
             <td><%= user.username %></td>
             <td><%= user.email %></td>
+            <td><%= user.jasmin_password %></td>
             <td><%= user.sms_count %></td>
+            <td>
+              <% user.senders.each do |sender| %>
+                  <%= sender.name %>
+                  </br>
+              <% end %>
+            </td>
             <td><%= user.role %></td>
             <td class="actions">
+              <%= link_to '<i class="fa fa-plus"></i>'.html_safe, reseller_router_path(user), 'class': 'on-default' %>
               <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_reseller_user_path(user), 'class': 'on-default' %>
               <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, reseller_user_path(user), method: :delete,
                           data: {confirm: "Are you sure you want to delete the group?"},
