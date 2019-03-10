@@ -133,7 +133,9 @@ class GroupSmsController < BaseController
               },
               "messages": [
                   {
-                      "to": @contact_numbers,
+                      "to":[
+                          "971527088651"
+                      ],
                       "content": @content
                   }
               ]
