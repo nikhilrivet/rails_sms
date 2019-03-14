@@ -4,12 +4,15 @@ def index
 end
 
 def show
-  @connector = Connector.find(params[:id])
   unless current_user.admin?
     unless @user == current_user
       redirect_to root_path, :alert => "Access denied."
     end
   end
+  @user = User.find(params[:id])
+  @routers = Router.where(user_id: params[:id])
+  @router = Router.new
+  @connectors = Connector.all
 end
 
 def new
@@ -21,16 +24,21 @@ def edit
 end
 
 def create
-  @router = Router.new(router_params)
-  jasmin_router = JasminRouter.new()
-  unless jasmin_router.add_router(router_params[:router_order], router_params[:router_type], router_params[:rate], router_params[:connector], router_params[:filter])
-    render 'new'
-    return
-  end
+  @router = Router.new(:router_type => "StaticMTRoute", :rate => router_params[:rate], :connector => router_params[:connector], :filter => router_params[:user_id], :user_id => router_params[:user_id])
   if @router.save
-    redirect_to admin_routers_path
+    @router.update_attributes(:router_order => @router.id)
+
+    jasmin_router = JasminRouter.new()
+    unless jasmin_router.add_router(@router.router_order, @router[:router_type], @router[:rate], @router[:connector], @router[:filter])
+      @router.delete
+      redirect_back(fallback_location: authenticated_root_path)
+      return
+    end
+    redirect_back(fallback_location: authenticated_root_path)
+    return
   else
-    render 'new'
+    redirect_back(fallback_location: authenticated_root_path)
+    return
   end
 end
 
@@ -64,7 +72,7 @@ def destroy
     return
   end
   @router.destroy
-  redirect_to admin_routers_path, :notice => "Router deleted."
+  redirect_back(fallback_location: authenticated_root_path)
 end
 
 private
@@ -76,6 +84,7 @@ def router_params
       :rate,
       :connector,
       :filter,
+      :user_id
   )
 end
 end

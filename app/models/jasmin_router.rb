@@ -7,14 +7,14 @@ class JasminRouter
 
   def add_router(order, type, rate, connector, filter)
     @server.cmd("mtrouter -a")
-    @server.cmd("type " + type)
+    @server.cmd("type " + type){ |c| print c }
     case type
       when 'DefaultRoute'
         @server.cmd("connector smppc(" + connector + ")")
       when 'StaticMTRoute'
-        @server.cmd("filters " + filter)
-        @server.cmd("connector smppc(" + connector + ")")
-        @server.cmd("order " + order)
+        @server.cmd("filters " + filter.to_s){ |c| print c }
+        @server.cmd("connector smppc(" + connector + ")"){ |c| print c }
+        @server.cmd("order " + order){ |c| print c }
       when 'RandomRoundrobinMTRoute'
         @server.cmd("filters " + filter)
         @server.cmd("connectors smppc(" + connector + ")")
@@ -25,7 +25,7 @@ class JasminRouter
         @server.cmd("order " + order)
     end
 
-    @server.cmd("rate " + rate.to_s)
+    @server.cmd("rate " + rate.to_s){ |c| print c }
     result = @server.cmd("ok")
     @server.cmd("quit")
     @telnet.telnet_close(@server)

@@ -22,7 +22,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    @user = User.new(:username => user_params[:username], :email => user_params[:email], :sms_count => user_params[:sms_count], :role => user_params[:role], :password =>user_params[:password], :password_confirmation => user_params[:password], :jasmin_password => user_params[:password])
+    @user = User.new(:username => user_params[:username], :email => user_params[:email], :sms_count => user_params[:sms_count], :role => 0, :password =>user_params[:password], :password_confirmation => user_params[:password], :jasmin_password => user_params[:password], :parent_id => current_user.id)
     jasmin_user = JasminUser.new()
     unless jasmin_user.add_user(user_params[:username], user_params[:password], user_params[:sms_count])
       render 'new'
@@ -38,6 +38,25 @@ class Admin::UsersController < Admin::BaseController
         if !@sender.save
           render 'new'
         end
+      end
+
+      jasmin_filter = JasminFilter.new()
+      unless jasmin_filter.add_filter(@user.id, "UserFilter", @user.username)
+        jasmin_delete_user = JasminUser.new()
+        jasmin_delete_user.delete_user(user_params[:username])
+        @user.delete
+        render 'new'
+        return
+      end
+
+      @filter = Filter.new(:fid => @user.id, :filter_type => "UserFilter", :parameter => @user.username)
+      unless @filter.save
+        jasmin_delete_user = JasminUser.new()
+        jasmin_delete_user.delete_user(user_params[:username])
+        jasmin_delete_filter = JasminFilter.new()
+        jasmin_delete_filter.delete_filter(@user.id)
+        @user.delete
+        render 'new'
       end
       redirect_to admin_users_path
     else

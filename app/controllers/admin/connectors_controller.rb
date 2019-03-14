@@ -23,14 +23,20 @@ class Admin::ConnectorsController < Admin::BaseController
   def create
     @connector = Connector.new(connector_params)
     jasmin_connector = JasminConnector.new()
-    unless jasmin_connector.add_smppccm(connector_params[:cid], connector_params[:host], connector_params[:port], connector_params[:username], connector_params[:password])
+    unless jasmin_connector.add_smppccm(connector_params[:cid], connector_params[:host], connector_params[:port], connector_params[:username], connector_params[:password], connector_params[:bind], connector_params[:src_ton], connector_params[:src_npi])
       render 'new'
+      return
+    end
+    unless jasmin_connector.start_smppccm(connector_params[:cid])
+      render 'new'
+      return
     end
     if @connector.save
-      jasmin_connector.start_smppccm(connector_params[:cid])
       redirect_to admin_connectors_path
+      return
     else
       render 'new'
+      return
     end
   end
 
@@ -63,6 +69,10 @@ class Admin::ConnectorsController < Admin::BaseController
         :port,
         :username,
         :password,
+        :bind,
+        :bind_to,
+        :src_ton,
+        :src_npi,
     )
   end
 end

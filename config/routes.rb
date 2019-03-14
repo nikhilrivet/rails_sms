@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     resources :users
     resources :connectors
     resources :routers
+    resources :resellers
     resources :filters
     root to: 'index#index'
   end
