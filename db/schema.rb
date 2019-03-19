@@ -10,22 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_07_164103) do
+ActiveRecord::Schema.define(version: 2019_03_13_160150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "books", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "connectors", force: :cascade do |t|
     t.string "cid"
@@ -38,6 +26,10 @@ ActiveRecord::Schema.define(version: 2019_02_07_164103) do
     t.integer "option"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bind"
+    t.integer "bind_to"
+    t.integer "src_ton"
+    t.integer "src_npi"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -57,6 +49,13 @@ ActiveRecord::Schema.define(version: 2019_02_07_164103) do
 
   create_table "distributions", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drafts", force: :cascade do |t|
+    t.string "draft_content"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -105,6 +104,20 @@ ActiveRecord::Schema.define(version: 2019_02_07_164103) do
     t.string "filter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "phone"
+    t.string "sender"
+    t.string "message"
+    t.string "batch_id"
+    t.string "message_status"
+    t.datetime "schedule_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "message_count"
   end
 
   create_table "senders", force: :cascade do |t|
@@ -127,6 +140,8 @@ ActiveRecord::Schema.define(version: 2019_02_07_164103) do
     t.integer "sms_count"
     t.string "phone"
     t.string "company"
+    t.string "jasmin_password"
+    t.integer "parent_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
