@@ -37,6 +37,10 @@ a:active {
 	width: 100%;
 }
 
+.home-login{
+	overflow-y: hidden;
+}
+
 /* Layout Base - Header */
 .header {
 	height: 60px;
@@ -15309,8 +15313,8 @@ html.dark .invoice table.table > tbody tr > td {
 }
 .body-sign .center-sign {
 	display: table-cell;
-	padding-top: 20px;
-	vertical-align: middle;
+	padding-top: 80px;
+	vertical-align: top;
 }
 .body-sign .panel-sign {
 	background: transparent;
